@@ -1,0 +1,54 @@
+wandb_version: 1
+
+alpha:
+  value: 0.6
+batch_size:
+  value: 256
+buffer_size:
+  value: 492681
+delay_policy_update:
+  value: 3
+dynamics_buffer_size:
+  value: 246810
+dynamics_min_uncertainty:
+  value: 1.0145347976150842
+dynamics_net_arch:
+  value:
+  - 200
+  - 200
+  - 200
+  - 200
+dynamics_real_ratio:
+  value: 0.8275061672147009
+dynamics_rollout_batch_size:
+  value: 30694
+dynamics_rollout_freq:
+  value: 188
+dynamics_rollout_len:
+  value: 5
+dynamics_rollout_starts:
+  value: 3251
+dynamics_train_freq:
+  value: 662
+gamma:
+  value: 0.9538884795105528
+gradient_updates:
+  value: 7
+learning_rate:
+  value: 0.004869643842732901
+learning_starts:
+  value: 900
+min_priority:
+  value: 0.1
+net_arch:
+  value:
+  - 256
+  - 256
+noise_clip:
+  value: 0.5
+num_q_nets:
+  value: 2
+policy_noise:
+  value: 0.2
+tau:
+  value: 0.6427414151086972

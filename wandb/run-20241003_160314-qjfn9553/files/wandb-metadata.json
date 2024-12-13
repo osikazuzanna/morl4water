@@ -1,0 +1,72 @@
+{
+    "os": "macOS-12.4-arm64-arm-64bit",
+    "python": "3.11.0",
+    "heartbeatAt": "2024-10-03T14:03:16.120713",
+    "startedAt": "2024-10-03T14:03:14.712061",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--algo",
+        "capql",
+        "--gamma",
+        "1.0",
+        "--env-id",
+        "nile-v0",
+        "--num-timesteps",
+        "200000",
+        "--ref-point",
+        "0",
+        "-240",
+        "-240",
+        "0",
+        "--init-hyperparams",
+        "learning_rate:0.002",
+        "buffer_size:1000000",
+        "learning_starts:10",
+        "net_arch:[512,512]",
+        "--wandb-entity",
+        "osikaz",
+        "--seed",
+        "2"
+    ],
+    "state": "running",
+    "program": "/Users/zuzannaosika/Documents/My PhD Projects/RL4Water/aamas/rl4water_envs/launch_experiment.py",
+    "codePathLocal": "launch_experiment.py",
+    "codePath": "launch_experiment.py",
+    "git": {
+        "remote": "git@github.com:osikazuzanna/morl4water.git",
+        "commit": "79c48bab2d726522e88a8d5c10c0069d9bf408fd"
+    },
+    "email": "osikazuzanna@gmail.com",
+    "root": "/Users/zuzannaosika/Documents/My PhD Projects/RL4Water/aamas/rl4water_envs",
+    "host": "c-001-020-015.client.tudelft.eduvpn.nl",
+    "username": "zuzannaosika",
+    "executable": "/Users/zuzannaosika/miniforge3/envs/morl4waterpy11/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 3228,
+        "min": 600,
+        "max": 3228
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3228,
+            "min": 600,
+            "max": 3228
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 460.4317207336426,
+            "used": 250.7866325378418
+        }
+    },
+    "gpuapple": {
+        "type": "Apple M1 Pro",
+        "vendor": "sppci_vendor_Apple"
+    },
+    "memory": {
+        "total": 16.0
+    }
+}

@@ -1,0 +1,21 @@
+method: random
+metric:
+  goal: maximize
+  name: avg_hypervolume
+parameters:
+
+
+#  The learning rate. Defaults to 3e-4.    
+  learning_rate:
+    values: [0.0002, 0.0003, 0.0004]
+
+# The batch size for training. Defaults to 32.
+  batch_size:
+    values: 512
+
+# Hidden dimension. Defaults to 64.
+  hidden_dim:
+    values: [64, 128]
+
+  gamma:
+    value: 1.0

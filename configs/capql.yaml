@@ -1,0 +1,29 @@
+method: random
+metric:
+  goal: maximize
+  name: avg_hypervolume
+parameters:
+
+
+#  The learning rate. Defaults to 3e-4.    
+  learning_rate:
+    values: [0.0002, 0.0003, 0.0004]
+
+# The size of the replay buffer. Defaults to int(1e6).
+  buffer_size:
+    values: [1000000, 1500000]
+
+# The network architecture for the policy and Q-networks.
+  net_arch:
+    value: [512, 512] #, [256, 512]]
+
+# The batch size for training. Defaults to 32.
+  batch_size:
+    values: 512
+
+# The number of steps to take before starting to train. Defaults to 100.
+  learning_starts:
+    values: [10, 100]
+
+  gamma:
+    value: 1.0
