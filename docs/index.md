@@ -6,6 +6,10 @@ lastpage:
 
 # Morl4water Intro
 
+```{figure} _static/_images/MORL4WATER_TITLE.png
+   :alt: Title image
+   :width: 500
+```
 
 ```{include} ../README.md
 :start-after: <!-- start main body -->
