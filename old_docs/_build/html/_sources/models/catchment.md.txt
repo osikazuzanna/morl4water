@@ -1,0 +1,7 @@
+## Catchment
+kdoepwdow
+
+```{eval-rst}
+.. autoclass:: morl4water.core.models.catchment.Catchment
+    :members:
+```

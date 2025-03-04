@@ -3,7 +3,7 @@
 Flow Model
 ================
 
-.. automodule:: morl4water.core.models.flow
+.. automodule:: flow
    :members:
    :undoc-members:
    :show-inheritance:

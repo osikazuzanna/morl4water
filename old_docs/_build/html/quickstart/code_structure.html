@@ -212,7 +212,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../models/catchment.html">Catchment Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/facility.html">Facility Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/flow.html">Flow Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/flow.html">Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/irrigation_district.html">Irrigation District Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/objective.html">Objective Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../models/power_plant.html">Power Plant Model</a></li>
@@ -267,11 +267,11 @@
 <h1>Code Structure<a class="headerlink" href="#code-structure" title="Link to this heading">¶</a></h1>
 <p>To successfully simulate an environment, morl4water package refers to multiple files and scripts which are dependent on each other. To have a clearer picture of how does a simulation work, this section goes through the code details and provide descriptions of the code logics. To better visualize the logics, the Nile river case and its file names will serve as an example.</p>
 <p>In general there are three main scripts that provide the backbone of the simulation: <strong><code class="docutils literal notranslate"><span class="pre">nile_example.py</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">nile_river_simulation.py</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">water_management_system.py</span></code></strong>. They have different functions which can be summarised in the form of the table below:</p>
-<p><img alt="Scripts Table" src="quickstart/docs/_static/_images/Scripts_Table.png" /></p>
+<p><img alt="Scripts Table" src="quickstart/_static/_images/Scripts_Table.png" /></p>
 <p>The following sections will provide a detailed description of each script. Before diving in, however, the two summary diagrams below offer a quick overview of the top-level interactions between the scripts. Each block has an assigned function number, place where the function takes place and the description of the action. The first diagram illustrates the process for initializing the river environment:</p>
-<p><img alt="Initialisation Diagram" src="quickstart/docs/_static/_images/Initialisation_diagram.drawio.png" /></p>
+<p><img alt="Initialisation Diagram" src="quickstart/_static/_images/Initialisation_diagram.drawio.png" /></p>
 <p>The next diagram provides a summary of how the RL Agent interacts with the environment and how the environemnt is updated after each action.</p>
-<p><img alt="Update Env Diagram" src="quickstart/docs/_static/_images/Update_diagram.drawio.png" /></p>
+<p><img alt="Update Env Diagram" src="quickstart/_static/_images/Update_diagram.drawio.png" /></p>
 <p>Now with these short diagram summaries it should be easier to understand more details behind the main scripts described in the next sections.</p>
 <section id="nile-exmaple-py">
 <h2>nile_exmaple.py<a class="headerlink" href="#nile-exmaple-py" title="Link to this heading">¶</a></h2>

@@ -3,7 +3,7 @@
 Irrigation District Model
 ==========================
 
-.. automodule:: morl4water.core.models.irrigation_district
+.. automodule:: models.irrigation_district
    :members:
    :undoc-members:
    :show-inheritance:
