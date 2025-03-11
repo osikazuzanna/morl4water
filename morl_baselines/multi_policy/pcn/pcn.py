@@ -202,7 +202,7 @@ class PCN(MOAgent, MOPolicy):
     def update(self):
         """Update PCN model."""
         batch = []
-        # randomly choose episodes from experience buffer
+        # randomly choose episodes from experience buffer and create the data
         s_i = self.np_random.choice(np.arange(len(self.experience_replay)), size=self.batch_size, replace=True)
         for i in s_i:
             # episode is tuple (return, transitions)
@@ -215,6 +215,7 @@ class PCN(MOAgent, MOPolicy):
             batch.append((s_t, a_t, r_t, h_t))
 
         obs, actions, desired_return, desired_horizon = zip(*batch)
+        #predict the action
         prediction = self.model(
             th.tensor(obs).to(self.device),
             th.tensor(desired_return).to(self.device),
