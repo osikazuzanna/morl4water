@@ -169,9 +169,10 @@ def autotag() -> str:
 seed = 1
 env_id = 'nile-v0'
 gamma = 0.99
-algo = 'pcn'
+algo = 'gpi_ls_continuous'
 seed_everything(seed)
-init_hyperparams={'scaling_factor': [0.1,0.1,0.1,0.1,0.1]}
+#init_hyperparams={'scaling_factor': [0.1,0.1,0.1,0.1,0.1]}
+init_hyperparams={}
 wandb_entity='osikaz'
 num_timesteps=10000
 ref_point=[0, -240, -240, 0]
