@@ -35,12 +35,12 @@ author = 'HIPPO LAB'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 #OLD
-extensions = [
-    'sphinx.ext.autodoc',  # Enables autodoc
-    'sphinx.ext.napoleon',  # Optional: Enables Google/NumPy-style docstrings
-    'sphinx.ext.autosummary', # To generate summary tables with links to the modules
-    'myst_parser', #for using index.md instead of index.rst
-]
+# extensions = [
+#     'sphinx.ext.autodoc',  # Enables autodoc
+#     'sphinx.ext.napoleon',  # Optional: Enables Google/NumPy-style docstrings
+#     'sphinx.ext.autosummary', # To generate summary tables with links to the modules
+#     'myst_parser', #for using index.md instead of index.rst
+# ]
 
 
 
@@ -53,13 +53,13 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 #NEW
 
-# extensions = [
-#     "sphinx.ext.napoleon",
-#     "sphinx.ext.doctest",
-#     "sphinx.ext.autodoc",
-#     "sphinx.ext.githubpages",
-#     "myst_parser",
-# ]
+extensions = [
+    "sphinx.ext.napoleon",
+    "sphinx.ext.doctest",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.githubpages",
+    "myst_parser",
+]
 
 templates_path = ["_templates"]
 exclude_patterns = []
