@@ -3,7 +3,7 @@ name: Deploy Sphinx Docs to GitHub Pages
 on:
   push:
     branches:
-      - main  # Adjust to your default branch if needed
+      - main  # Adjust if your default branch is different
 
 permissions:
   contents: read
@@ -30,12 +30,12 @@ jobs:
 
       - name: Build documentation
         run: |
-          make -C docs html  # Adjust the path if your docs are in a different folder
+          make -C docs html  # Adjust path if needed
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v2  # Correct version
         with:
-          path: docs/_build/html  # Path to the generated HTML files
+          path: docs/_build/html  # Adjust path to match your Sphinx output
 
   deploy:
     runs-on: ubuntu-latest
@@ -47,4 +47,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v2  # Correct version
