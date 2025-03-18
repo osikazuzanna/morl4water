@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Weir Model" href="weir.html" /><link rel="prev" title="Reservoir Model" href="reservoir.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Facility Model" href="facility.html" /><link rel="prev" title="Running a Simulation" href="../quickstart/running_a_simulation.html" />
 
-    <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Reservoir with Pump Model - morl4water documentation</title>
+    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>Catchment Model - morl4water documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -210,14 +210,14 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">System Elements</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="catchment.html">Catchment Model</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Catchment Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="facility.html">Facility Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="flow.html">Flow Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow.html">Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="irrigation_district.html">Irrigation District Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="objective.html">Objective Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="power_plant.html">Power Plant Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reservoir.html">Reservoir Model</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Reservoir with Pump Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reservoir_with_pump.html">Reservoir with Pump Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="weir.html">Weir Model</a></li>
 </ul>
 
@@ -239,12 +239,12 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="https://github.com/osikazuzanna/morl4water/blob/main/docs/models/reservoir_with_pump.rst?plain=true" title="View this page">
+  <a class="muted-link" href="https://github.com/osikazuzanna/morl4water/blob/main/docs/models/catchment.rst?plain=true" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/osikazuzanna/morl4water/edit/main/docs/models/reservoir_with_pump.rst" title="Edit this page">
+  <a class="muted-link" href="https://github.com/osikazuzanna/morl4water/edit/main/docs/models/catchment.rst" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -257,14 +257,99 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="reservoir-with-pump-model">
-<span id="reservoir-with-pump"></span><h1>Reservoir with Pump Model<a class="headerlink" href="#reservoir-with-pump-model" title="Link to this heading">¶</a></h1>
+          <section id="module-morl4water.core.models.catchment">
+<span id="catchment-model"></span><span id="catchment"></span><h1>Catchment Model<a class="headerlink" href="#module-morl4water.core.models.catchment" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="morl4water.core.models.catchment.Catchment">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">morl4water.core.models.catchment.</span></span><span class="sig-name descname"><span class="pre">Catchment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_water_accumulated</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.catchment.Catchment" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Facility</span></code></p>
+<p>A class representing a catchment facility that accumulates water over time and manages inflows and outflows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The identifier for the catchment facility.</p></li>
+<li><p><strong>all_water_accumulated</strong> (<em>list</em><em>[</em><em>float</em><em>]</em>) – List of water accumulation values over time.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Initializes a Catchment instance with the given name and water accumulation data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The identifier for the catchment facility.</p></li>
+<li><p><strong>all_water_accumulated</strong> (<em>list</em><em>[</em><em>float</em><em>]</em>) – A list of accumulated water values over time.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.catchment.Catchment.determine_consumption">
+<span class="sig-name descname"><span class="pre">determine_consumption</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.catchment.Catchment.determine_consumption" title="Link to this definition">¶</a></dt>
+<dd><p>Determines the water consumption for the catchment. In this implementation, consumption is always 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>float</strong> – The water consumption for the current timestep, always 0 in this case.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.catchment.Catchment.determine_info">
+<span class="sig-name descname"><span class="pre">determine_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#morl4water.core.models.catchment.Catchment.determine_info" title="Link to this definition">¶</a></dt>
+<dd><p>Returns information about the catchment’s state, particularly the water consumption.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dict</strong> – A dictionary containing the water consumption, which is always 0 in this case.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.catchment.Catchment.determine_reward">
+<span class="sig-name descname"><span class="pre">determine_reward</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.catchment.Catchment.determine_reward" title="Link to this definition">¶</a></dt>
+<dd><p>Determines the reward for the catchment. In this implementation, the reward is always 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>float</strong> – The reward for the current timestep, always 0 in this case.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.catchment.Catchment.get_inflow">
+<span class="sig-name descname"><span class="pre">get_inflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.catchment.Catchment.get_inflow" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves the inflow value for a given timestep.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timestep</strong> (<em>int</em>) – The timestep index for which to retrieve the inflow value.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>float</strong> – The inflow value for the specified timestep, based on the water accumulation list.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>If the timestep exceeds the length of <cite>all_water_accumulated</cite>, it wraps around using modulus.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.catchment.Catchment.is_truncated">
+<span class="sig-name descname"><span class="pre">is_truncated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#morl4water.core.models.catchment.Catchment.is_truncated" title="Link to this definition">¶</a></dt>
+<dd><p>Determines if the simulation should be truncated based on the timestep.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bool</strong> – True if the current timestep is greater than or equal to the length of <cite>all_water_accumulated</cite>,
+indicating the simulation should be truncated, otherwise False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
         </article>
@@ -272,23 +357,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="weir.html">
+          <a class="next-page" href="facility.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Weir Model</div>
+                <div class="title">Facility Model</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="reservoir.html">
+          <a class="prev-page" href="../quickstart/running_a_simulation.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Reservoir Model</div>
+                <div class="title">Running a Simulation</div>
                 
               </div>
             </a>
@@ -310,8 +395,34 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Catchment Model</a><ul>
+<li><a class="reference internal" href="#morl4water.core.models.catchment.Catchment"><code class="docutils literal notranslate"><span class="pre">Catchment</span></code></a><ul>
+<li><a class="reference internal" href="#morl4water.core.models.catchment.Catchment.determine_consumption"><code class="docutils literal notranslate"><span class="pre">Catchment.determine_consumption()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.catchment.Catchment.determine_info"><code class="docutils literal notranslate"><span class="pre">Catchment.determine_info()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.catchment.Catchment.determine_reward"><code class="docutils literal notranslate"><span class="pre">Catchment.determine_reward()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.catchment.Catchment.get_inflow"><code class="docutils literal notranslate"><span class="pre">Catchment.get_inflow()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.catchment.Catchment.is_truncated"><code class="docutils literal notranslate"><span class="pre">Catchment.is_truncated()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

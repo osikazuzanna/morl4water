@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Weir Model" href="weir.html" /><link rel="prev" title="Reservoir Model" href="reservoir.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Running a Simulation" href="running_a_simulation.html" /><link rel="prev" title="Creating a Simulation" href="creating_a_simulation.html" />
 
-    <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Reservoir with Pump Model - morl4water documentation</title>
+    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>Implemented Simulations - morl4water documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -199,26 +199,26 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/simulation_approach.html">Simulation Approach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/code_structure.html">Code Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/updating_facilities.html">Updating Facilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/updating_flows.html">Updating Flows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/creating_a_simulation.html">Creating a Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/implemented_simulations.html">Implemented Simulations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/running_a_simulation.html">Running a Simulation</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="simulation_approach.html">Simulation Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_structure.html">Code Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updating_facilities.html">Updating Facilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="updating_flows.html">Updating Flows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creating_a_simulation.html">Creating a Simulation</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Implemented Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_a_simulation.html">Running a Simulation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">System Elements</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="catchment.html">Catchment Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="facility.html">Facility Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="flow.html">Flow Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="irrigation_district.html">Irrigation District Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="objective.html">Objective Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="power_plant.html">Power Plant Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reservoir.html">Reservoir Model</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Reservoir with Pump Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="weir.html">Weir Model</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/catchment.html">Catchment Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/facility.html">Facility Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/flow.html">Flow Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/irrigation_district.html">Irrigation District Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/objective.html">Objective Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/power_plant.html">Power Plant Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/reservoir.html">Reservoir Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/reservoir_with_pump.html">Reservoir with Pump Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/weir.html">Weir Model</a></li>
 </ul>
 
 </div>
@@ -239,12 +239,12 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="https://github.com/osikazuzanna/morl4water/blob/main/docs/models/reservoir_with_pump.rst?plain=true" title="View this page">
+  <a class="muted-link" href="https://github.com/osikazuzanna/morl4water/blob/main/docs/quickstart/implemented_simulations.md?plain=true" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/osikazuzanna/morl4water/edit/main/docs/models/reservoir_with_pump.rst" title="Edit this page">
+  <a class="muted-link" href="https://github.com/osikazuzanna/morl4water/edit/main/docs/quickstart/implemented_simulations.md" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -257,14 +257,101 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="reservoir-with-pump-model">
-<span id="reservoir-with-pump"></span><h1>Reservoir with Pump Model<a class="headerlink" href="#reservoir-with-pump-model" title="Link to this heading">¶</a></h1>
+          <section id="implemented-simulations">
+<h1>Implemented Simulations<a class="headerlink" href="#implemented-simulations" title="Link to this heading">¶</a></h1>
+<p>As for now there are three simulations implemented and ready to be run:</p>
+<ol class="arabic simple">
+<li><p><strong>Nile</strong></p></li>
+<li><p><strong>Susquehanna</strong></p></li>
+<li><p><strong>Omo</strong></p></li>
+</ol>
+<p>They all differ in their structure, river elements, observation space, action space and objectives. Below you should be able to find detailed descriptions of these simulations.</p>
+<section id="nile">
+<h2>Nile<a class="headerlink" href="#nile" title="Link to this heading">¶</a></h2>
+<p>The Nile River is a critical resource in northeastern Africa, serving as a water source for hydropower, agriculture, and domestic use across multiple nations. Water rights issues, particularly between Egypt, Sudan, and Ethiopia, have intensified with Ethiopia’s construction of the Grand Ethiopian Renaissance Dam (GERD), intended for hydropower generation to boost its economic development.</p>
+<p>Originally, the simulation starts at <strong>(2025, 1, 1)</strong> and the decisions are taken on a monthly basis over a 20-year period, resulting in <strong>240 time steps</strong> for each episode. It also has 4 following objectives:</p>
+<ol class="arabic simple">
+<li><p><span style="color:blue"> Ethiopia power (max), ref point: 0.0<span style="color:blue"></p></li>
+<li><p><span style="color:blue"> Sudan deficit (min), ref point: -240 <span style="color:blue"></p></li>
+<li><p><span style="color:blue"> Egypt deficit (min), ref point: -240 <span style="color:blue"></p></li>
+<li><p><span style="color:blue"> HAD minimum level (max), ref point 0.0 <span style="color:blue"></p></li>
+</ol>
+<p>Where max/main signifies whether an objective is to be maximised or minimised. The reference point is used for calculating hypervolume as the worst case scenario in terms of acquired rewards by the agent at the end of the simulation.</p>
+<p>Currently the user may pick their own number of objectives they want to use in their simulations with:</p>
+<ul class="simple">
+<li><p>2 objectives: Ethiopia power (max) and Egypt deficit (min)</p></li>
+<li><p>3 objectives: Ethiopia power (max), Egypt deficit (min), and Sudan deficit (min)</p></li>
+<li><p>4 objectives: All original objectives</p></li>
+</ul>
+<p>Where in all cases:</p>
+<ul class="simple">
+<li><p>Observation space: Storage in 4 reservoirs, month (5 dimensions)</p></li>
+<li><p>Action space: Release per each reservoir (4 dimensions)</p></li>
+</ul>
+<p>Here you can see a picture visualising Nile river structure:
+<img alt="Examplary river diagram with nodes and flows" src="../_images/Nile_river.png" /></p>
+<p>Taken from: <em>Sari, Y. (2022). Exploring Trade-offs in Reservoir Operations through Many-Objective Optimization: Case of the Nile River Basin (Master’s thesis). Delft University of Technology.</em></p>
+</section>
+<section id="susquehanna">
+<h2>Susquehanna<a class="headerlink" href="#susquehanna" title="Link to this heading">¶</a></h2>
+<p>The Susquehanna River, regulated by the Conowingo Dam, supports diverse needs, including hydroelectric power, water supply, and recreation. However, low-flow conditions create challenging trade-offs, forcing Conowingo to balance energy production with environmental and community water needs.</p>
+<p>Originally, the simulation starts at <strong>(2021, 1, 1)</strong> and the decisions are made every 4 hours throughout a year resulting in <strong>2190 time steps</strong> per episode (the whole simulation). It also has 6 following objectives:</p>
+<ol class="arabic simple">
+<li><p><span style="color:blue"> Recreation (max), ref point: 0.0<span style="color:blue"></p></li>
+<li><p><span style="color:blue"> Energy revenue (max), ref point: 0.0 <span style="color:blue"></p></li>
+<li><p><span style="color:blue"> Baltimore (max), ref point: 0.0  <span style="color:blue"></p></li>
+<li><p><span style="color:blue"> Atomic (max), ref point: 0.0 <span style="color:blue"></p></li>
+<li><p><span style="color:blue"> Chester (max), ref point: 0.0 <span style="color:blue"></p></li>
+<li><p><span style="color:blue"> Environment (min), ref point: -2190 <span style="color:blue"></p></li>
+</ol>
+<p>Where max/main signifies whether an objective is to be maximised or minimised. The reference point is used for calculating hypervolume as the worst case scenario in terms of acquired rewards by the agent at the end of the simulation.</p>
+<p>Currently the user may pick their own number of objectives they want to use in their simulations with:</p>
+<ul class="simple">
+<li><p>2 objectives: Baltimore (max) vs Chester (max)</p></li>
+<li><p>3 objectives: Baltimore (max), Atomic (max), Chester (max)</p></li>
+<li><p>4 objectives: Baltimore (max), Atomic (max), Chester (max), Recreation (max)</p></li>
+<li><p>5 objectives: Baltimore (max), Atomic (max), Chester (max), Recreation (max), revenue (max)</p></li>
+<li><p>6 objectives: Baltimore (max), Atomic (max), Chester (max), Recreation (max), revenue (max), environmental index (min)</p></li>
+</ul>
+<p>Where in all cases:</p>
+<ul class="simple">
+<li><p>Observation space: Water level, month (2 dimensions)</p></li>
+<li><p>Action space: Release per each reservoir (4 dimensions)</p></li>
+</ul>
+<p>Here you can see a picture visualising Omo river structure:
+<img alt="Examplary river diagram with nodes and flows" src="quickstart/docs/_static/_images/Susquehanna_river.png" /></p>
+<p>Taken from: <em>Muniak, K. (2024). RL4Water: Reinforcement Learning Environment for Water Management (Bachelor’s thesis). Delft University of Technology, Faculty of EEMCS.</em></p>
+</section>
+<section id="omo">
+<h2>Omo<a class="headerlink" href="#omo" title="Link to this heading">¶</a></h2>
+<p>The Lower Omo-Gibe River Basin in Ethiopia highlights the complex challenges of balancing hydropower, irrigation, and environmental flow needs in a developing region. This model includes key infrastructure like the Gibe III and Koysha dams, the Kuraz sugar plantation irrigation schemes and Omorate town.</p>
+<p>Originally, the simulation starts at <strong>(2029, 1, 1)</strong> and the decisions are taken on a monthly basis over a 12-year period, resulting in <strong>144 time steps</strong> for each episode (the whole simulation). It also has 3 following objectives:</p>
+<ol class="arabic simple">
+<li><p><span style="color:blue"> Hydropower at Gibe-III and Koysha plants (max), ref point: 0.0 <span style="color:blue"></p></li>
+<li><p><span style="color:blue"> Kuraz plantation deficit (min), ref point: -144 <span style="color:blue"></p></li>
+<li><p><span style="color:blue"> Omorate town deficit (min), ref point: -144  <span style="color:blue"></p></li>
+</ol>
+<p>Where max/min signifies whether an objective is to be maximised or minimised. The reference point is used for calculating hypervolume as the worst case scenario in terms of acquired rewards by the agent at the end of the simulation.</p>
+<p>Currently the user may pick only one variation of objectives which is the default one with all 3 objectives:</p>
+<ul class="simple">
+<li><p>3 objectives: Hydropower (max), Kuraz plantation deficit (min), Omorate town deficit (min)</p></li>
+</ul>
+<p>Where in all cases:</p>
+<ul class="simple">
+<li><p>Observation space: Gibe-III reservoir, Koysha reservoir,  month (3 dimensions)</p></li>
+<li><p>Action space: Gibe-III reservoir’s release, Koysha reservoir’s release, Weir(3 dimensions)</p></li>
+</ul>
+<p>The Omo case is unique because, beyond managing reservoir releases, it also involves determining the percentage split of water flow at the weir. This weir does not store water; instead, it divides the flow into two separate streams—one directed toward the Kuraz plantations and the other to Omorate town.</p>
+<p>Here you can see a picture visualising Omo river structure:
+<img alt="Examplary river diagram with nodes and flows" src="quickstart/docs/_static/_images/Omo_river.png" /></p>
+<p>Taken from: <em>Bangar, Y. (2024). Modeling water resources for everyone: Transparent and effective approaches for complex systems: Case study of the Lower Omo Basin (Master’s thesis). Delft University of Technology.</em></p>
+</section>
 </section>
 
         </article>
@@ -272,23 +359,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="weir.html">
+          <a class="next-page" href="running_a_simulation.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Weir Model</div>
+                <div class="title">Running a Simulation</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="reservoir.html">
+          <a class="prev-page" href="creating_a_simulation.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Reservoir Model</div>
+                <div class="title">Creating a Simulation</div>
                 
               </div>
             </a>
@@ -310,8 +397,29 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Implemented Simulations</a><ul>
+<li><a class="reference internal" href="#nile">Nile</a></li>
+<li><a class="reference internal" href="#susquehanna">Susquehanna</a></li>
+<li><a class="reference internal" href="#omo">Omo</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
