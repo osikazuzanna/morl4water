@@ -143,3 +143,4 @@ videos/
 
 # vscode
 .vscode/
+/docs/_build
