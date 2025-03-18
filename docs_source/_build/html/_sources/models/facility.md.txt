@@ -1,0 +1,7 @@
+
+## Facility lala
+
+```{eval-rst}
+.. automodule:: morl4water.core.models.facility
+    :members:
+```
