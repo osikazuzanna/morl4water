@@ -10,7 +10,7 @@ import sys
 # # Add the path to the directory containing your Python modules for morl4water there are 2 paths needed
 sys.path.insert(0, os.path.abspath('../..'))
 sys.path.insert(0, os.path.abspath('..'))
-sys.path.insert(0, os.path.abspath('../core/models')) 
+#sys.path.insert(0, os.path.abspath('../core/models')) 
 
 
 
