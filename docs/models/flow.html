@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Irrigation District Model" href="irrigation_district.html" /><link rel="prev" title="Facility Model" href="facility.html" />
 
-    <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
         <title>Flow Model - morl4water documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -257,14 +257,226 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="flow-model">
-<span id="flow"></span><h1>Flow Model<a class="headerlink" href="#flow-model" title="Link to this heading">¶</a></h1>
+          <section id="module-morl4water.core.models.flow">
+<span id="flow-model"></span><span id="flow"></span><h1>Flow Model<a class="headerlink" href="#module-morl4water.core.models.flow" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="morl4water.core.models.flow.Flow">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">morl4water.core.models.flow.</span></span><span class="sig-name descname"><span class="pre">Flow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="facility.html#morl4water.core.models.facility.Facility" title="morl4water.core.models.facility.Facility"><span class="pre">Facility</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="facility.html#morl4water.core.models.facility.ControlledFacility" title="morl4water.core.models.facility.ControlledFacility"><span class="pre">ControlledFacility</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destinations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="facility.html#morl4water.core.models.facility.Facility" title="morl4water.core.models.facility.Facility"><span class="pre">Facility</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="facility.html#morl4water.core.models.facility.ControlledFacility" title="morl4water.core.models.facility.ControlledFacility"><span class="pre">ControlledFacility</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="facility.html#morl4water.core.models.facility.Facility" title="morl4water.core.models.facility.Facility"><span class="pre">Facility</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="facility.html#morl4water.core.models.facility.ControlledFacility" title="morl4water.core.models.facility.ControlledFacility"><span class="pre">ControlledFacility</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_capacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaporation_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_outflow</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.flow.Flow" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to model water flow between sources and destinations with optional evaporation, delay, and capacity constraints.</p>
+<p>The Flow class simulates water transfer from source facilities to destination facilities, taking into account
+factors such as maximum capacity, evaporation rate, and delay in flow arrival.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name of the flow.</p></li>
+<li><p><strong>sources</strong> (<em>list</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="facility.html#morl4water.core.models.facility.Facility" title="morl4water.core.models.facility.Facility"><em>Facility</em></a><em>, </em><a class="reference internal" href="facility.html#morl4water.core.models.facility.ControlledFacility" title="morl4water.core.models.facility.ControlledFacility"><em>ControlledFacility</em></a><em>]</em><em>]</em>) – A list of source facilities providing the flow.</p></li>
+<li><p><strong>destinations</strong> (<em>Union</em><em>[</em><a class="reference internal" href="facility.html#morl4water.core.models.facility.Facility" title="morl4water.core.models.facility.Facility"><em>Facility</em></a><em>, </em><a class="reference internal" href="facility.html#morl4water.core.models.facility.ControlledFacility" title="morl4water.core.models.facility.ControlledFacility"><em>ControlledFacility</em></a><em>, </em><em>dict</em><em>[</em><a class="reference internal" href="facility.html#morl4water.core.models.facility.Facility" title="morl4water.core.models.facility.Facility"><em>Facility</em></a><em> | </em><a class="reference internal" href="facility.html#morl4water.core.models.facility.ControlledFacility" title="morl4water.core.models.facility.ControlledFacility"><em>ControlledFacility</em></a><em>, </em><em>float</em><em>]</em><em>]</em>) – A dictionary where keys are destination facilities and values are inflow ratios (weights),
+or a single destination facility if only one is present.</p></li>
+<li><p><strong>max_capacity</strong> (<em>float</em>) – The maximum capacity of the flow, which, if exceeded, may trigger truncation or termination.</p></li>
+<li><p><strong>evaporation_rate</strong> (<em>float</em><em>, </em><em>optional</em>) – A rate at which water evaporates during the flow, expressed as a decimal fraction (default is 0.0).</p></li>
+<li><p><strong>delay</strong> (<em>int</em><em>, </em><em>optional</em>) – Delay in the flow, measured in timesteps (default is 0).</p></li>
+<li><p><strong>default_outflow</strong> (<em>Optional</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Default outflow rate when delayed (default is None).</p></li>
+<li><p><strong>current_date</strong> (<em>Optional</em><em>[</em><em>datetime</em><em>]</em>) – Current date in the simulation, used to manage time-based calculations.</p></li>
+<li><p><strong>timestep_size</strong> (<em>Optional</em><em>[</em><em>relativedelta</em><em>]</em>) – The size of each simulation timestep.</p></li>
+<li><p><strong>timestep</strong> (<em>int</em>) – Current timestep in the simulation.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Initializes a Flow object with specified sources, destinations, and flow properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name of the flow.</p></li>
+<li><p><strong>sources</strong> (<em>list</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="facility.html#morl4water.core.models.facility.Facility" title="morl4water.core.models.facility.Facility"><em>Facility</em></a><em>, </em><a class="reference internal" href="facility.html#morl4water.core.models.facility.ControlledFacility" title="morl4water.core.models.facility.ControlledFacility"><em>ControlledFacility</em></a><em>]</em><em>]</em>) – A list of source facilities for the flow.</p></li>
+<li><p><strong>destinations</strong> (<a class="reference internal" href="facility.html#morl4water.core.models.facility.Facility" title="morl4water.core.models.facility.Facility"><em>Facility</em></a><em> | </em><a class="reference internal" href="facility.html#morl4water.core.models.facility.ControlledFacility" title="morl4water.core.models.facility.ControlledFacility"><em>ControlledFacility</em></a><em> | </em><em>dict</em><em>[</em><a class="reference internal" href="facility.html#morl4water.core.models.facility.Facility" title="morl4water.core.models.facility.Facility"><em>Facility</em></a><em> | </em><a class="reference internal" href="facility.html#morl4water.core.models.facility.ControlledFacility" title="morl4water.core.models.facility.ControlledFacility"><em>ControlledFacility</em></a><em>, </em><em>float</em><em>]</em>) – Destinations with inflow ratios or a single destination facility.</p></li>
+<li><p><strong>max_capacity</strong> (<em>float</em>) – Maximum capacity of the flow.</p></li>
+<li><p><strong>evaporation_rate</strong> (<em>float</em><em>, </em><em>optional</em>) – Evaporation rate for the flow (default is 0.0).</p></li>
+<li><p><strong>delay</strong> (<em>int</em><em>, </em><em>optional</em>) – Delay in timesteps before flow reaches the destination (default is 0).</p></li>
+<li><p><strong>default_outflow</strong> (<em>Optional</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Default outflow rate during delay periods (default is None).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.flow.Flow.determine_info">
+<span class="sig-name descname"><span class="pre">determine_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#morl4water.core.models.flow.Flow.determine_info" title="Link to this definition">¶</a></dt>
+<dd><p>Returns information about the flow.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dict</strong> – A dictionary containing the flow name and the current flow rate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.flow.Flow.determine_source_outflow">
+<span class="sig-name descname"><span class="pre">determine_source_outflow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.flow.Flow.determine_source_outflow" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates the total outflow from all sources, considering delay and default outflow conditions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>float</strong> – The total outflow from sources after applying delay and any default outflow conditions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.flow.Flow.determine_source_outflow_by_destination">
+<span class="sig-name descname"><span class="pre">determine_source_outflow_by_destination</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination_inflow_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.flow.Flow.determine_source_outflow_by_destination" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates source outflow specific to a destination, adjusting for custom split policies and inflow ratios.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>destination_index</strong> (<em>int</em>) – Index of the destination in the list of destinations.</p></li>
+<li><p><strong>destination_inflow_ratio</strong> (<em>float</em>) – The ratio of total inflow directed to this destination.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>float</strong> – The calculated source outflow for the specified destination.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.flow.Flow.is_truncated">
+<span class="sig-name descname"><span class="pre">is_truncated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#morl4water.core.models.flow.Flow.is_truncated" title="Link to this definition">¶</a></dt>
+<dd><p>Determines if the flow is truncated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bool</strong> – Always returns False in the base class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.flow.Flow.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#morl4water.core.models.flow.Flow.reset" title="Link to this definition">¶</a></dt>
+<dd><p>Resets the simulation, setting the timestep to zero.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.flow.Flow.set_destination_inflow">
+<span class="sig-name descname"><span class="pre">set_destination_inflow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#morl4water.core.models.flow.Flow.set_destination_inflow" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the inflow for each destination based on calculated source outflow and evaporation rates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.flow.Flow.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ObsType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#morl4water.core.models.flow.Flow.step" title="Link to this definition">¶</a></dt>
+<dd><p>Advances the simulation by one timestep, updating destination inflows and checking termination and truncation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tuple[Optional[ObsType], float, bool, bool, dict]</strong> – A tuple containing the observation, reward, termination status, truncation status, and additional information.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="morl4water.core.models.flow.Inflow">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">morl4water.core.models.flow.</span></span><span class="sig-name descname"><span class="pre">Inflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destinations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="facility.html#morl4water.core.models.facility.Facility" title="morl4water.core.models.facility.Facility"><span class="pre">Facility</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="facility.html#morl4water.core.models.facility.ControlledFacility" title="morl4water.core.models.facility.ControlledFacility"><span class="pre">ControlledFacility</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="facility.html#morl4water.core.models.facility.Facility" title="morl4water.core.models.facility.Facility"><span class="pre">Facility</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="facility.html#morl4water.core.models.facility.ControlledFacility" title="morl4water.core.models.facility.ControlledFacility"><span class="pre">ControlledFacility</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_capacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_inflow</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaporation_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_outflow</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.flow.Inflow" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#morl4water.core.models.flow.Flow" title="morl4water.core.models.flow.Flow"><code class="xref py py-class docutils literal notranslate"><span class="pre">Flow</span></code></a></p>
+<p>A subclass of Flow representing a fixed inflow over time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>all_inflow</strong> (<em>list</em><em>[</em><em>float</em><em>]</em>) – A list containing inflow values for each timestep.</p>
+</dd>
+</dl>
+<p>Initializes an Inflow object with predefined inflow values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name of the inflow.</p></li>
+<li><p><strong>destinations</strong> (<a class="reference internal" href="facility.html#morl4water.core.models.facility.Facility" title="morl4water.core.models.facility.Facility"><em>Facility</em></a><em> | </em><a class="reference internal" href="facility.html#morl4water.core.models.facility.ControlledFacility" title="morl4water.core.models.facility.ControlledFacility"><em>ControlledFacility</em></a><em> | </em><em>dict</em><em>[</em><a class="reference internal" href="facility.html#morl4water.core.models.facility.Facility" title="morl4water.core.models.facility.Facility"><em>Facility</em></a><em> | </em><a class="reference internal" href="facility.html#morl4water.core.models.facility.ControlledFacility" title="morl4water.core.models.facility.ControlledFacility"><em>ControlledFacility</em></a><em>, </em><em>float</em><em>]</em>) – Destinations for the inflow.</p></li>
+<li><p><strong>max_capacity</strong> (<em>float</em>) – Maximum capacity of the inflow.</p></li>
+<li><p><strong>all_inflow</strong> (<em>list</em><em>[</em><em>float</em><em>]</em>) – List of inflow values for each timestep.</p></li>
+<li><p><strong>evaporation_rate</strong> (<em>float</em><em>, </em><em>optional</em>) – Evaporation rate for the inflow (default is 0.0).</p></li>
+<li><p><strong>delay</strong> (<em>int</em><em>, </em><em>optional</em>) – Delay before inflow reaches destination (default is 0).</p></li>
+<li><p><strong>default_outflow</strong> (<em>Optional</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Default outflow when delayed (default is None).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.flow.Inflow.determine_source_outflow">
+<span class="sig-name descname"><span class="pre">determine_source_outflow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.flow.Inflow.determine_source_outflow" title="Link to this definition">¶</a></dt>
+<dd><p>Determines the inflow for the current timestep, taking into account delay and default outflow.</p>
+<p>If the delay period has not been reached, returns the default outflow value if provided.
+Otherwise, it calculates the inflow using the all_inflow list, looping back if the timestep
+exceeds the length of all_inflow.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>float</strong> – The inflow amount for the current timestep, or the default outflow during the delay period.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.flow.Inflow.determine_source_outflow_by_destination">
+<span class="sig-name descname"><span class="pre">determine_source_outflow_by_destination</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination_inflow_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.flow.Inflow.determine_source_outflow_by_destination" title="Link to this definition">¶</a></dt>
+<dd><p>Determines the inflow for a specific destination, applying destination ratios and considering delay.</p>
+<p>If the delay period has not been reached, returns the default outflow value if provided.
+Otherwise, calculates the inflow to the destination by applying the inflow ratio
+to the current timestep’s inflow value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>destination_index</strong> (<em>int</em>) – Index of the destination in the list of destinations.</p></li>
+<li><p><strong>destination_inflow_ratio</strong> (<em>float</em>) – Ratio of the total inflow directed to this destination.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>float</strong> – The amount of inflow directed to the specified destination for the current timestep.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.flow.Inflow.is_truncated">
+<span class="sig-name descname"><span class="pre">is_truncated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#morl4water.core.models.flow.Inflow.is_truncated" title="Link to this definition">¶</a></dt>
+<dd><p>Checks if the inflow sequence has reached its end, indicating a truncated state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bool</strong> – True if the timestep has exceeded the length of the all_inflow list, otherwise False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="morl4water.core.models.flow.Outflow">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">morl4water.core.models.flow.</span></span><span class="sig-name descname"><span class="pre">Outflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="facility.html#morl4water.core.models.facility.Facility" title="morl4water.core.models.facility.Facility"><span class="pre">Facility</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="facility.html#morl4water.core.models.facility.ControlledFacility" title="morl4water.core.models.facility.ControlledFacility"><span class="pre">ControlledFacility</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_capacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.flow.Outflow" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#morl4water.core.models.flow.Flow" title="morl4water.core.models.flow.Flow"><code class="xref py py-class docutils literal notranslate"><span class="pre">Flow</span></code></a></p>
+<p>A subclass of Flow specifically for outflow management, without any set destinations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong></p>
+</dd>
+</dl>
+<p>Initializes an Outflow object without destinations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name of the outflow.</p></li>
+<li><p><strong>sources</strong> (<em>list</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="facility.html#morl4water.core.models.facility.Facility" title="morl4water.core.models.facility.Facility"><em>Facility</em></a><em>, </em><a class="reference internal" href="facility.html#morl4water.core.models.facility.ControlledFacility" title="morl4water.core.models.facility.ControlledFacility"><em>ControlledFacility</em></a><em>]</em><em>]</em>) – List of source facilities.</p></li>
+<li><p><strong>max_capacity</strong> (<em>float</em>) – Maximum capacity of the outflow.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.flow.Outflow.set_destination_inflow">
+<span class="sig-name descname"><span class="pre">set_destination_inflow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#morl4water.core.models.flow.Outflow.set_destination_inflow" title="Link to this definition">¶</a></dt>
+<dd><p>Overrides the destination inflow method to do nothing, as Outflow has no destinations.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
         </article>
@@ -310,8 +522,46 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Flow Model</a><ul>
+<li><a class="reference internal" href="#morl4water.core.models.flow.Flow"><code class="docutils literal notranslate"><span class="pre">Flow</span></code></a><ul>
+<li><a class="reference internal" href="#morl4water.core.models.flow.Flow.determine_info"><code class="docutils literal notranslate"><span class="pre">Flow.determine_info()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.flow.Flow.determine_source_outflow"><code class="docutils literal notranslate"><span class="pre">Flow.determine_source_outflow()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.flow.Flow.determine_source_outflow_by_destination"><code class="docutils literal notranslate"><span class="pre">Flow.determine_source_outflow_by_destination()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.flow.Flow.is_truncated"><code class="docutils literal notranslate"><span class="pre">Flow.is_truncated()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.flow.Flow.reset"><code class="docutils literal notranslate"><span class="pre">Flow.reset()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.flow.Flow.set_destination_inflow"><code class="docutils literal notranslate"><span class="pre">Flow.set_destination_inflow()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.flow.Flow.step"><code class="docutils literal notranslate"><span class="pre">Flow.step()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#morl4water.core.models.flow.Inflow"><code class="docutils literal notranslate"><span class="pre">Inflow</span></code></a><ul>
+<li><a class="reference internal" href="#morl4water.core.models.flow.Inflow.determine_source_outflow"><code class="docutils literal notranslate"><span class="pre">Inflow.determine_source_outflow()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.flow.Inflow.determine_source_outflow_by_destination"><code class="docutils literal notranslate"><span class="pre">Inflow.determine_source_outflow_by_destination()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.flow.Inflow.is_truncated"><code class="docutils literal notranslate"><span class="pre">Inflow.is_truncated()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#morl4water.core.models.flow.Outflow"><code class="docutils literal notranslate"><span class="pre">Outflow</span></code></a><ul>
+<li><a class="reference internal" href="#morl4water.core.models.flow.Outflow.set_destination_inflow"><code class="docutils literal notranslate"><span class="pre">Outflow.set_destination_inflow()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

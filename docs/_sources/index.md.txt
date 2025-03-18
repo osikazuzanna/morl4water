@@ -11,7 +11,7 @@ lastpage:
    :width: 500
 ```
 
-```{include} ../README.md
+```{include} README.md
 :start-after: <!-- start main body -->
 :end-before: <!-- end main body -->
 ```

@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Creating a Simulation" href="creating_a_simulation.html" /><link rel="prev" title="Updating Facilities" href="updating_facilities.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Updating Flows - morl4water documentation</title>
+        <title>Flow - morl4water documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -199,26 +199,26 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="simulation_approach.html">Simulation Approach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code_structure.html">Code Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="updating_facilities.html">Updating Facilities</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Updating Flows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="creating_a_simulation.html">Creating a Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="implemented_simulations.html">Implemented Simulations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="running_a_simulation.html">Running a Simulation</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/simulation_approach.html">Simulation Approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/code_structure.html">Code Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/updating_facilities.html">Updating Facilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/updating_flows.html">Updating Flows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/creating_a_simulation.html">Creating a Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/implemented_simulations.html">Implemented Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/running_a_simulation.html">Running a Simulation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">System Elements</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../models/catchment.html">Catchment Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/facility.html">Facility Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/flow.html">Flow Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/irrigation_district.html">Irrigation District Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/objective.html">Objective Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/power_plant.html">Power Plant Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/reservoir.html">Reservoir Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/reservoir_with_pump.html">Reservoir with Pump Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../models/weir.html">Weir Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="catchment.html">Catchment Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="facility.html">Facility Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow.html">Flow Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="irrigation_district.html">Irrigation District Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objective.html">Objective Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="power_plant.html">Power Plant Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reservoir.html">Reservoir Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reservoir_with_pump.html">Reservoir with Pump Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weir.html">Weir Model</a></li>
 </ul>
 
 </div>
@@ -239,12 +239,12 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="https://github.com/osikazuzanna/morl4water/blob/main/docs/quickstart/updating_flows.md?plain=true" title="View this page">
+  <a class="muted-link" href="https://github.com/osikazuzanna/morl4water/blob/main/docs/models/flow_old.md?plain=true" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/osikazuzanna/morl4water/edit/main/docs/quickstart/updating_flows.md" title="Edit this page">
+  <a class="muted-link" href="https://github.com/osikazuzanna/morl4water/edit/main/docs/models/flow_old.md" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -257,40 +257,20 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="updating-flows">
-<h1>Updating Flows<a class="headerlink" href="#updating-flows" title="Link to this heading">¶</a></h1>
-<p>Instances of <code class="docutils literal notranslate"><span class="pre">Flow</span></code> superclass just as instances of facilites must be updated within each iteration of the main <code class="docutils literal notranslate"><span class="pre">.step()</span></code> method in <code class="docutils literal notranslate"><span class="pre">water_management_system.py</span></code>. Basically for objects of <code class="docutils literal notranslate"><span class="pre">Flows</span></code> the following <code class="docutils literal notranslate"><span class="pre">.step()</span></code> method applies:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">ObsType</span><span class="p">],</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">bool</span><span class="p">,</span> <span class="nb">bool</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+          <section id="flow">
+<h1>Flow<a class="headerlink" href="#flow" title="Link to this heading">¶</a></h1>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="morl4water.core.models.flow">
+<span class="sig-prename descclassname"><span class="pre">morl4water.core.models.</span></span><span class="sig-name descname"><span class="pre">flow</span></span><a class="headerlink" href="#morl4water.core.models.flow" title="Link to this definition">¶</a></dt>
+<dd><p>alias of &lt;module ‘morl4water.core.models.flow’ from ‘/Users/zuzannaosika/Documents/My PhD Projects/morl4water/core/models/flow.py’&gt;</p>
+</dd></dl>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">set_destination_inflow</span><span class="p">()</span>
-
-        <span class="n">terminated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">determine_source_outflow</span><span class="p">()</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_capacity</span>
-        <span class="n">truncated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_truncated</span><span class="p">()</span>
-        <span class="n">reward</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;-inf&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">terminated</span> <span class="k">else</span> <span class="mf">0.0</span> 
-        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">determine_info</span><span class="p">()</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">timestep</span> <span class="o">+=</span> <span class="mi">1</span>
-
-        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">terminated</span><span class="p">,</span> <span class="n">truncated</span><span class="p">,</span> <span class="n">info</span>
-</pre></div>
-</div>
-<p>The core function of the <code class="docutils literal notranslate"><span class="pre">.step()</span></code> method lies in the <code class="docutils literal notranslate"><span class="pre">.set_destination_inflow()</span></code> method. This function determines the flow’s destinations and any associated distribution ratios, then calculates the appropriate inflow for each destination. It does so by assessing the total inflow to the flow object and applying the distribution ratios to allocate the correct inflow amount to each destination. This is presented here:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">set_destination_inflow</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-
-        <span class="k">for</span> <span class="n">destination_index</span><span class="p">,</span> <span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="n">destination_inflow_ratio</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destinations</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
-            <span class="n">destination_inflow</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">determine_source_outflow_by_destination</span><span class="p">(</span>
-                <span class="n">destination_index</span><span class="p">,</span> <span class="n">destination_inflow_ratio</span>
-            <span class="p">)</span>
-
-            <span class="n">destination</span><span class="o">.</span><span class="n">set_inflow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timestep</span><span class="p">,</span> <span class="n">destination_inflow</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaporation_rate</span><span class="p">))</span>
-</pre></div>
-</div>
 </section>
 
         </article>
@@ -298,26 +278,8 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="creating_a_simulation.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Creating a Simulation</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="updating_facilities.html">
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title">Updating Facilities</div>
-                
-              </div>
-            </a>
+          
+          
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -336,8 +298,27 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Flow</a><ul>
+<li><a class="reference internal" href="#morl4water.core.models.flow"><code class="docutils literal notranslate"><span class="pre">flow</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

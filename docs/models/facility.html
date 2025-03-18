@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Flow Model" href="flow.html" /><link rel="prev" title="Catchment Model" href="catchment.html" />
 
-    <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
         <title>Facility Model - morl4water documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -257,14 +257,407 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="facility-model">
-<span id="facility"></span><h1>Facility Model<a class="headerlink" href="#facility-model" title="Link to this heading">¶</a></h1>
+          <section id="module-morl4water.core.models.facility">
+<span id="facility-model"></span><span id="facility"></span><h1>Facility Model<a class="headerlink" href="#module-morl4water.core.models.facility" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.ControlledFacility">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">morl4water.core.models.facility.</span></span><span class="sig-name descname"><span class="pre">ControlledFacility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">observation_space:</span> <span class="pre">~gymnasium.spaces.space.Space</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action_space:</span> <span class="pre">~gymnasium.core.ActType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_capacity:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_action:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective_function=&lt;function</span> <span class="pre">Objective.no_objective&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective_name:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.facility.ControlledFacility" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Abstract base class representing a facility with inflow and outflow management, along with reward determination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Identifier for the controlled facility.</p></li>
+<li><p><strong>all_inflow</strong> (<em>list</em><em>[</em><em>float</em><em>]</em>) – Historical inflow values recorded over time.</p></li>
+<li><p><strong>all_outflow</strong> (<em>list</em><em>[</em><em>float</em><em>]</em>) – Historical outflow values recorded over time.</p></li>
+<li><p><strong>max_capacity</strong> (<em>float</em>) – Maximum capacity of the facility.</p></li>
+<li><p><strong>max_action</strong> (<em>float</em>) – Maximum allowable action for inflow/outflow control.</p></li>
+<li><p><strong>observation_space</strong> (<em>Space</em>) – The space representing the possible observations from the facility.</p></li>
+<li><p><strong>action_space</strong> (<em>Space</em>) – The space representing the possible actions that can be taken to control the facility.</p></li>
+<li><p><strong>objective_function</strong> (<em>Callable</em>) – Function used to evaluate the facility’s performance based on predefined objectives.</p></li>
+<li><p><strong>objective_name</strong> (<em>str</em>) – The name of the objective function used.</p></li>
+<li><p><strong>current_date</strong> (<em>Optional</em><em>[</em><em>datetime</em><em>]</em>) – Date corresponding to the current timestep.</p></li>
+<li><p><strong>timestep_size</strong> (<em>Optional</em><em>[</em><em>relativedelta</em><em>]</em>) – Size of the simulation timestep (e.g., 1 month).</p></li>
+<li><p><strong>timestep</strong> (<em>int</em>) – The current timestep index in the simulation.</p></li>
+<li><p><strong>should_split_release</strong> (<em>bool</em>) – Determines whether the release needs to be split across multiple actions.</p></li>
+<li><p><strong>split_release</strong> (<em>Optional</em>) – Placeholder for managing split release strategies (if applicable).</p></li>
+</ul>
+</dd>
+</dl>
+<p>Initializes a ControlledFacility instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The identifier for the facility.</p></li>
+<li><p><strong>observation_space</strong> (<em>Space</em>) – The space representing possible observations from the facility.</p></li>
+<li><p><strong>action_space</strong> (<em>ActType</em>) – The space representing possible actions that control the facility.</p></li>
+<li><p><strong>max_capacity</strong> (<em>float</em>) – Maximum capacity of the facility.</p></li>
+<li><p><strong>max_action</strong> (<em>float</em>) – Maximum action value for inflow/outflow control.</p></li>
+<li><p><strong>objective_function</strong> (<em>Callable</em>) – Function to evaluate the facility’s performance (default is no objective).</p></li>
+<li><p><strong>objective_name</strong> (<em>str</em>) – Name of the objective function used (default is an empty string).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.ControlledFacility.determine_info">
+<span class="sig-name descname"><span class="pre">determine_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.ControlledFacility.determine_info" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves additional information about the facility’s state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dict</strong> – A dictionary containing information about the facility.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – If not implemented in a subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.ControlledFacility.determine_observation">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">determine_observation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ObsType</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.ControlledFacility.determine_observation" title="Link to this definition">¶</a></dt>
+<dd><p>Abstract method for determining the current observation from the facility.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ObsType</strong> – The current observation.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – If not implemented in a subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.ControlledFacility.determine_outflow">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">determine_outflow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.ControlledFacility.determine_outflow" title="Link to this definition">¶</a></dt>
+<dd><p>Abstract method for determining the outflow based on a given action.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>action</strong> (<em>ActType</em>) – The action taken to control the outflow.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>float</strong> – The calculated outflow based on the provided action.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – If not implemented in a subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.ControlledFacility.determine_reward">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">determine_reward</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.ControlledFacility.determine_reward" title="Link to this definition">¶</a></dt>
+<dd><p>Abstract method for calculating the reward based on the facility’s performance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>float</strong> – The computed reward for the current timestep.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – If not implemented in a subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.ControlledFacility.get_inflow">
+<span class="sig-name descname"><span class="pre">get_inflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.ControlledFacility.get_inflow" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves the inflow value for a given timestep.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timestep</strong> (<em>int</em>) – The timestep index for which to retrieve the inflow.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>float</strong> – The inflow value for the specified timestep.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>IndexError</strong> – If the timestep is out of bounds.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.ControlledFacility.get_outflow">
+<span class="sig-name descname"><span class="pre">get_outflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.ControlledFacility.get_outflow" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves the outflow value for a given timestep.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timestep</strong> (<em>int</em>) – The timestep index for which to retrieve the outflow.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>float</strong> – The outflow value for the specified timestep.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>IndexError</strong> – If the timestep is out of bounds.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.ControlledFacility.is_terminated">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_terminated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.ControlledFacility.is_terminated" title="Link to this definition">¶</a></dt>
+<dd><p>Abstract method to check if the simulation has reached a termination condition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bool</strong> – Returns True if the simulation has reached a termination condition, False otherwise.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – If not implemented in a subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.ControlledFacility.is_truncated">
+<span class="sig-name descname"><span class="pre">is_truncated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.ControlledFacility.is_truncated" title="Link to this definition">¶</a></dt>
+<dd><p>Determines if the simulation has been truncated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bool</strong> – Always returns False for the base ControlledFacility class. Override in subclasses if needed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.ControlledFacility.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.ControlledFacility.reset" title="Link to this definition">¶</a></dt>
+<dd><p>Resets the facility to its initial state for a new simulation run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.ControlledFacility.set_inflow">
+<span class="sig-name descname"><span class="pre">set_inflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inflow</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.ControlledFacility.set_inflow" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the inflow value for a given timestep, either adding to or replacing the current value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timestep</strong> (<em>int</em>) – The timestep index at which to set the inflow.</p></li>
+<li><p><strong>inflow</strong> (<em>float</em>) – The inflow value to set.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>IndexError</strong> – If the timestep index is invalid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.ControlledFacility.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ActType</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ObsType</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">SupportsFloat</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#morl4water.core.models.facility.ControlledFacility.step" title="Link to this definition">¶</a></dt>
+<dd><p>Advances the simulation by one timestep based on the given action and computes the reward.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>action</strong> (<em>ActType</em>) – The action to be taken to control the facility.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>tuple[ObsType, SupportsFloat, bool, bool, dict]</strong> – A tuple containing:
+- ObsType: The updated observation.
+- float: The reward for the current timestep.
+- bool: Indicates if the simulation has terminated.
+- bool: Indicates if the simulation has been truncated.
+- dict: Additional information about the facility’s state.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.Facility">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">morl4water.core.models.facility.</span></span><span class="sig-name descname"><span class="pre">Facility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective_function=&lt;function</span> <span class="pre">Objective.no_objective&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective_name:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize_objective=0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.facility.Facility" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Abstract base class representing a facility with inflow and outflow management, along with reward determination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Identifier for the facility.</p></li>
+<li><p><strong>all_inflow</strong> (<em>list</em><em>[</em><em>float</em><em>]</em>) – Historical inflow values recorded over time.</p></li>
+<li><p><strong>all_outflow</strong> (<em>list</em><em>[</em><em>float</em><em>]</em>) – Historical outflow values recorded over time.</p></li>
+<li><p><strong>objective_function</strong> (<em>Callable</em>) – Function to evaluate the facility’s performance based on defined objectives.</p></li>
+<li><p><strong>objective_name</strong> (<em>str</em>) – Name of the objective function used.</p></li>
+<li><p><strong>current_date</strong> (<em>Optional</em><em>[</em><em>datetime</em><em>]</em>) – Date associated with the current timestep of the facility.</p></li>
+<li><p><strong>timestep_size</strong> (<em>Optional</em><em>[</em><em>relativedelta</em><em>]</em>) – Size of the timestep for simulation. Usually 1 month.</p></li>
+<li><p><strong>timestep</strong> (<em>int</em>) – Current timestep index for the facility simulation.</p></li>
+<li><p><strong>split_release</strong> (<em>Optional</em>) – Placeholder for managing release strategies (usage to be defined).</p></li>
+<li><p><strong>normalize_objective</strong> (<em>float</em>) – Normalization factor for the objective reward.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Initializes a Facility instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Identifier for the facility.</p></li>
+<li><p><strong>objective_function</strong> (<em>Callable</em>) – Function to evaluate the facility’s performance.</p></li>
+<li><p><strong>objective_name</strong> (<em>str</em>) – Name of the objective function.</p></li>
+<li><p><strong>normalize_objective</strong> (<em>float</em>) – Maximum value for normalizing the reward; defaults to 0.0.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.Facility.determine_consumption">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">determine_consumption</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.Facility.determine_consumption" title="Link to this definition">¶</a></dt>
+<dd><p>Abstract method to calculate the facility’s water consumption.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>float</strong> – The calculated water consumption for the current timestep.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – If this method is not implemented in a subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.Facility.determine_info">
+<span class="sig-name descname"><span class="pre">determine_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.Facility.determine_info" title="Link to this definition">¶</a></dt>
+<dd><p>Method to gather information about the facility’s state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dict</strong> – A dictionary containing information about the facility.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – If this method is not implemented in a subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.Facility.determine_outflow">
+<span class="sig-name descname"><span class="pre">determine_outflow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.Facility.determine_outflow" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates the outflow based on the current inflow and consumption.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>float</strong> – The calculated outflow for the current timestep.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.Facility.determine_reward">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">determine_reward</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.Facility.determine_reward" title="Link to this definition">¶</a></dt>
+<dd><p>Abstract method to compute the reward based on the facility’s performance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>float</strong> – The computed reward for the current timestep.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – If this method is not implemented in a subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.Facility.get_inflow">
+<span class="sig-name descname"><span class="pre">get_inflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.Facility.get_inflow" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves the inflow value for a specific timestep.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timestep</strong> (<em>int</em>) – The timestep index for which to retrieve the inflow.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>float</strong> – The inflow value for the specified timestep.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>IndexError</strong> – If the timestep is out of bounds.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.Facility.get_outflow">
+<span class="sig-name descname"><span class="pre">get_outflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.Facility.get_outflow" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves the outflow value for a specific timestep.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timestep</strong> (<em>int</em>) – The timestep index for which to retrieve the outflow.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>float</strong> – The outflow value for the specified timestep.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>IndexError</strong> – If the timestep is out of bounds.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.Facility.is_terminated">
+<span class="sig-name descname"><span class="pre">is_terminated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.Facility.is_terminated" title="Link to this definition">¶</a></dt>
+<dd><p>Checks if the facility simulation has reached a terminating condition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bool</strong> – Always returns False for the base Facility class; override in subclasses as needed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.Facility.is_truncated">
+<span class="sig-name descname"><span class="pre">is_truncated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.Facility.is_truncated" title="Link to this definition">¶</a></dt>
+<dd><p>Checks if the facility simulation has been truncated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bool</strong> – Always returns False for the base Facility class; override in subclasses as needed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.Facility.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.Facility.reset" title="Link to this definition">¶</a></dt>
+<dd><p>Resets the facility to its initial state for a new simulation run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.Facility.set_inflow">
+<span class="sig-name descname"><span class="pre">set_inflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inflow</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#morl4water.core.models.facility.Facility.set_inflow" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the inflow value for a specific timestep, adjusting if necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timestep</strong> (<em>int</em>) – The timestep index at which to set the inflow.</p></li>
+<li><p><strong>inflow</strong> (<em>float</em>) – The inflow value to set.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>IndexError</strong> – If the timestep index is invalid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.facility.Facility.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ObsType</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#morl4water.core.models.facility.Facility.step" title="Link to this definition">¶</a></dt>
+<dd><p>Advances the simulation by one timestep, calculating outflows and rewards.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tuple[ObsType, float, bool, bool, dict]</strong> – A tuple containing:
+- ObsType: Placeholder for observation type (to be defined).
+- float: The reward for the current timestep.
+- bool: Indicates if the simulation has terminated.
+- bool: Indicates if the simulation has been truncated.
+- dict: Additional information about the facility’s state.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
         </article>
@@ -310,8 +703,54 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Facility Model</a><ul>
+<li><a class="reference internal" href="#morl4water.core.models.facility.ControlledFacility"><code class="docutils literal notranslate"><span class="pre">ControlledFacility</span></code></a><ul>
+<li><a class="reference internal" href="#morl4water.core.models.facility.ControlledFacility.determine_info"><code class="docutils literal notranslate"><span class="pre">ControlledFacility.determine_info()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.ControlledFacility.determine_observation"><code class="docutils literal notranslate"><span class="pre">ControlledFacility.determine_observation()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.ControlledFacility.determine_outflow"><code class="docutils literal notranslate"><span class="pre">ControlledFacility.determine_outflow()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.ControlledFacility.determine_reward"><code class="docutils literal notranslate"><span class="pre">ControlledFacility.determine_reward()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.ControlledFacility.get_inflow"><code class="docutils literal notranslate"><span class="pre">ControlledFacility.get_inflow()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.ControlledFacility.get_outflow"><code class="docutils literal notranslate"><span class="pre">ControlledFacility.get_outflow()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.ControlledFacility.is_terminated"><code class="docutils literal notranslate"><span class="pre">ControlledFacility.is_terminated()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.ControlledFacility.is_truncated"><code class="docutils literal notranslate"><span class="pre">ControlledFacility.is_truncated()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.ControlledFacility.reset"><code class="docutils literal notranslate"><span class="pre">ControlledFacility.reset()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.ControlledFacility.set_inflow"><code class="docutils literal notranslate"><span class="pre">ControlledFacility.set_inflow()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.ControlledFacility.step"><code class="docutils literal notranslate"><span class="pre">ControlledFacility.step()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.Facility"><code class="docutils literal notranslate"><span class="pre">Facility</span></code></a><ul>
+<li><a class="reference internal" href="#morl4water.core.models.facility.Facility.determine_consumption"><code class="docutils literal notranslate"><span class="pre">Facility.determine_consumption()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.Facility.determine_info"><code class="docutils literal notranslate"><span class="pre">Facility.determine_info()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.Facility.determine_outflow"><code class="docutils literal notranslate"><span class="pre">Facility.determine_outflow()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.Facility.determine_reward"><code class="docutils literal notranslate"><span class="pre">Facility.determine_reward()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.Facility.get_inflow"><code class="docutils literal notranslate"><span class="pre">Facility.get_inflow()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.Facility.get_outflow"><code class="docutils literal notranslate"><span class="pre">Facility.get_outflow()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.Facility.is_terminated"><code class="docutils literal notranslate"><span class="pre">Facility.is_terminated()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.Facility.is_truncated"><code class="docutils literal notranslate"><span class="pre">Facility.is_truncated()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.Facility.reset"><code class="docutils literal notranslate"><span class="pre">Facility.reset()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.Facility.set_inflow"><code class="docutils literal notranslate"><span class="pre">Facility.set_inflow()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.facility.Facility.step"><code class="docutils literal notranslate"><span class="pre">Facility.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
