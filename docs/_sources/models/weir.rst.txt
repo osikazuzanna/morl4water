@@ -3,7 +3,7 @@
 Weir Model
 ===========
 
-.. autoclass:: morl4water.core.models.weir.Weir
+.. automodule:: morl4water.core.models.weir
    :members:
    :undoc-members:
    :show-inheritance:

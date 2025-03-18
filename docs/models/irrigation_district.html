@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Objective Model" href="objective.html" /><link rel="prev" title="Flow Model" href="flow.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+    <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>Irrigation District Model - morl4water documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -257,126 +257,14 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="module-morl4water.core.models.irrigation_district">
-<span id="irrigation-district-model"></span><span id="irrigation-district"></span><h1>Irrigation District Model<a class="headerlink" href="#module-morl4water.core.models.irrigation_district" title="Link to this heading">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="morl4water.core.models.irrigation_district.IrrigationDistrict">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">morl4water.core.models.irrigation_district.</span></span><span class="sig-name descname"><span class="pre">IrrigationDistrict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_demand</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize_objective</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.irrigation_district.IrrigationDistrict" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Facility</span></code></p>
-<p>Represents an irrigation district with specific water demand, consumption, and deficit tracking.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Variables<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>str</em>) – Identifier for the irrigation district.</p></li>
-<li><p><strong>all_demand</strong> (<em>list</em><em>[</em><em>float</em><em>]</em>) – Monthly water demand values for the irrigation district.</p></li>
-<li><p><strong>total_deficit</strong> (<em>float</em>) – Cumulative water deficit experienced by the district over time.</p></li>
-<li><p><strong>all_deficit</strong> (<em>list</em><em>[</em><em>float</em><em>]</em>) – Monthly record of deficits, calculated as demand minus consumption.</p></li>
-<li><p><strong>normalize_objective</strong> (<em>float</em>) – Normalization factor for the objective function reward. It should be the highest monthly value in a year. Default is 0.0</p></li>
-</ul>
-</dd>
-</dl>
-<p>Initializes an Irrigation District instance.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – str
-Identifier for the irrigation district.</p></li>
-<li><p><strong>all_demand</strong> – list[float]
-Monthly water demand values for the irrigation district.</p></li>
-<li><p><strong>objective_function</strong> – callable
-Function to evaluate the district’s performance.</p></li>
-<li><p><strong>objective_name</strong> – str
-Name of the objective.</p></li>
-<li><p><strong>normalize_objective</strong> – float, optional
-Maximum value for normalizing the objective, it should be the highest monthly demand in the whole year. By default 0.0.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.irrigation_district.IrrigationDistrict.determine_consumption">
-<span class="sig-name descname"><span class="pre">determine_consumption</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.irrigation_district.IrrigationDistrict.determine_consumption" title="Link to this definition">¶</a></dt>
-<dd><p>Calculates the water consumption for the irrigation district based on current demand and inflow.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>float</strong> – Water consumption for the current timestep.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.irrigation_district.IrrigationDistrict.determine_deficit">
-<span class="sig-name descname"><span class="pre">determine_deficit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.irrigation_district.IrrigationDistrict.determine_deficit" title="Link to this definition">¶</a></dt>
-<dd><p>Calculates the reward (irrigation deficit) given the values of its attributes</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>float</strong> – Water deficit of the irrigation district</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.irrigation_district.IrrigationDistrict.determine_info">
-<span class="sig-name descname"><span class="pre">determine_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#morl4water.core.models.irrigation_district.IrrigationDistrict.determine_info" title="Link to this definition">¶</a></dt>
-<dd><p>Returns information about the irrigation district.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dict</strong> – A dictionary containing key metrics for the district.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.irrigation_district.IrrigationDistrict.determine_reward">
-<span class="sig-name descname"><span class="pre">determine_reward</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.irrigation_district.IrrigationDistrict.determine_reward" title="Link to this definition">¶</a></dt>
-<dd><p>Calculates the reward for the irrigation district based on the objective function.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>float</strong> – Reward as calculated by the objective function.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.irrigation_district.IrrigationDistrict.get_current_demand">
-<span class="sig-name descname"><span class="pre">get_current_demand</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.irrigation_district.IrrigationDistrict.get_current_demand" title="Link to this definition">¶</a></dt>
-<dd><p>Returns the demand value for the current timestep.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>float</strong> – Demand for the current timestep.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.irrigation_district.IrrigationDistrict.is_truncated">
-<span class="sig-name descname"><span class="pre">is_truncated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#morl4water.core.models.irrigation_district.IrrigationDistrict.is_truncated" title="Link to this definition">¶</a></dt>
-<dd><p>Checks if the simulation has reached the end of the demand data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>bool</strong> – True if the simulation has no more demand data to process, False otherwise.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.irrigation_district.IrrigationDistrict.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#morl4water.core.models.irrigation_district.IrrigationDistrict.reset" title="Link to this definition">¶</a></dt>
-<dd><p>Resets the irrigation district’s deficit attributes and inherited attributes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>None</strong></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+          <section id="irrigation-district-model">
+<span id="irrigation-district"></span><h1>Irrigation District Model<a class="headerlink" href="#irrigation-district-model" title="Link to this heading">¶</a></h1>
 </section>
 
         </article>
@@ -422,36 +310,8 @@ Maximum value for normalizing the objective, it should be the highest monthly de
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Irrigation District Model</a><ul>
-<li><a class="reference internal" href="#morl4water.core.models.irrigation_district.IrrigationDistrict"><code class="docutils literal notranslate"><span class="pre">IrrigationDistrict</span></code></a><ul>
-<li><a class="reference internal" href="#morl4water.core.models.irrigation_district.IrrigationDistrict.determine_consumption"><code class="docutils literal notranslate"><span class="pre">IrrigationDistrict.determine_consumption()</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.irrigation_district.IrrigationDistrict.determine_deficit"><code class="docutils literal notranslate"><span class="pre">IrrigationDistrict.determine_deficit()</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.irrigation_district.IrrigationDistrict.determine_info"><code class="docutils literal notranslate"><span class="pre">IrrigationDistrict.determine_info()</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.irrigation_district.IrrigationDistrict.determine_reward"><code class="docutils literal notranslate"><span class="pre">IrrigationDistrict.determine_reward()</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.irrigation_district.IrrigationDistrict.get_current_demand"><code class="docutils literal notranslate"><span class="pre">IrrigationDistrict.get_current_demand()</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.irrigation_district.IrrigationDistrict.is_truncated"><code class="docutils literal notranslate"><span class="pre">IrrigationDistrict.is_truncated()</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.irrigation_district.IrrigationDistrict.reset"><code class="docutils literal notranslate"><span class="pre">IrrigationDistrict.reset()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

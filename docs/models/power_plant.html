@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Reservoir Model" href="reservoir.html" /><link rel="prev" title="Objective Model" href="objective.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+    <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>Power Plant Model - morl4water documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -257,159 +257,14 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="module-morl4water.core.models.power_plant">
-<span id="power-plant-model"></span><span id="power-plant"></span><h1>Power Plant Model<a class="headerlink" href="#module-morl4water.core.models.power_plant" title="Link to this heading">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="morl4water.core.models.power_plant.PowerPlant">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">morl4water.core.models.power_plant.</span></span><span class="sig-name descname"><span class="pre">PowerPlant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">efficiency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_turbine_flow</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize_objective</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_turbine_flow</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_start_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_capacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reservoir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="reservoir.html#morl4water.core.models.reservoir.Reservoir" title="morl4water.core.models.reservoir.Reservoir"><span class="pre">Reservoir</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_usage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tailwater</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">turbines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_turbines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_prices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.power_plant.PowerPlant" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Facility</span></code></p>
-<p>Class to represent a Hydro-energy Powerplant.</p>
-<p>This class models a hydroelectric power plant, including its power production capabilities,
-water consumption, and the relationship between water levels and energy generation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Variables<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>str</em>) – Identifier for the power plant.</p></li>
-<li><p><strong>efficiency</strong> (<em>float</em>) – Efficiency coefficient (mu) used in hydropower formula.</p></li>
-<li><p><strong>max_turbine_flow</strong> (<em>float</em>) – Maximum possible flow that can be passed through the turbines for the purpose of hydroenergy production.</p></li>
-<li><p><strong>head_start_level</strong> (<em>float</em>) – Minimum elevation of water level that is used to calculate hydraulic head for hydropower production.</p></li>
-<li><p><strong>max_capacity</strong> (<em>float</em>) – Total design capacity (mW) of the plant.</p></li>
-<li><p><strong>water_level_coeff</strong> (<em>float</em>) – Coefficient that determines the water level based on the volume of outflow.</p></li>
-<li><p><strong>water_usage</strong> (<em>float</em>) – Fraction of water used by the power plant for production.</p></li>
-<li><p><strong>production_vector</strong> (<em>np.ndarray</em>) – Vector that stores the power production history of the plant.</p></li>
-<li><p><strong>tailwater</strong> (<em>np.array</em>) – Array of tailwater data used for detailed power production calculations.</p></li>
-<li><p><strong>turbines</strong> (<em>np.array</em>) – Array representing turbine flow data.</p></li>
-<li><p><strong>n_turbines</strong> (<em>int</em>) – Number of turbines in the power plant.</p></li>
-<li><p><strong>energy_prices</strong> (<em>np.array</em>) – Energy price data used for production cost calculations.</p></li>
-</ul>
-</dd>
-</dl>
-<p>Initializes a Hydro-energy Powerplant object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>str</em>) – The name/identifier for the power plant.</p></li>
-<li><p><strong>objective_function</strong> (<em>callable</em>) – Function to calculate the reward based on the power production.</p></li>
-<li><p><strong>objective_name</strong> (<em>str</em>) – Name of the objective.</p></li>
-<li><p><strong>efficiency</strong> (<em>float</em>) – Efficiency of the plant in converting water flow to energy.</p></li>
-<li><p><strong>min_turbine_flow</strong> (<em>float</em><em>, </em><em>optional</em>) – Minimum turbine flow, default is 0.0.</p></li>
-<li><p><strong>normalize_objective</strong> (<em>float</em><em>, </em><em>optional</em>) – Normalization factor for the objective function, default is 0.0.</p></li>
-<li><p><strong>max_turbine_flow</strong> (<em>float</em><em>, </em><em>optional</em>) – Maximum turbine flow, default is 0.0.</p></li>
-<li><p><strong>head_start_level</strong> (<em>float</em><em>, </em><em>optional</em>) – Minimum water level required for generating power, default is 0.0.</p></li>
-<li><p><strong>max_capacity</strong> (<em>float</em><em>, </em><em>optional</em>) – Maximum design capacity of the plant in MW, default is 0.0.</p></li>
-<li><p><strong>reservoir</strong> (<a class="reference internal" href="reservoir.html#morl4water.core.models.reservoir.Reservoir" title="morl4water.core.models.reservoir.Reservoir"><em>Reservoir</em></a><em>, </em><em>optional</em>) – Reservoir object associated with the power plant, default is None.</p></li>
-<li><p><strong>water_usage</strong> (<em>float</em><em>, </em><em>optional</em>) – Water usage factor for the plant, default is 0.0.</p></li>
-<li><p><strong>tailwater</strong> (<em>np.array</em><em>, </em><em>optional</em>) – Tailwater data for detailed turbine calculations, default is None.</p></li>
-<li><p><strong>turbines</strong> (<em>np.array</em><em>, </em><em>optional</em>) – Turbine capacity data, default is None.</p></li>
-<li><p><strong>n_turbines</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of turbines in the plant, default is 0.</p></li>
-<li><p><strong>energy_prices</strong> (<em>np.array</em><em>, </em><em>optional</em>) – Array of energy price data, default is None.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.power_plant.PowerPlant.determine_consumption">
-<span class="sig-name descname"><span class="pre">determine_consumption</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.power_plant.PowerPlant.determine_consumption" title="Link to this definition">¶</a></dt>
-<dd><p>Calculates the water consumption of the plant.</p>
-<p>The consumption is based on the turbine flow and the water usage factor.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>float</strong> – The amount of water consumed by the plant in cubic meters per second.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.power_plant.PowerPlant.determine_info">
-<span class="sig-name descname"><span class="pre">determine_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#morl4water.core.models.power_plant.PowerPlant.determine_info" title="Link to this definition">¶</a></dt>
-<dd><p>Returns key information about the hydro-energy power plant.</p>
-<p>This includes the name, inflow, outflow, monthly production, water usage, and total production.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dict</strong> – A dictionary with the power plant’s key information.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.power_plant.PowerPlant.determine_month">
-<span class="sig-name descname"><span class="pre">determine_month</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#morl4water.core.models.power_plant.PowerPlant.determine_month" title="Link to this definition">¶</a></dt>
-<dd><p>Returns the current month based on the timestep.</p>
-<p>The method assumes the timestep is provided as a monthly index.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>int</strong> – The current month as an integer (0-11).</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.power_plant.PowerPlant.determine_production">
-<span class="sig-name descname"><span class="pre">determine_production</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.power_plant.PowerPlant.determine_production" title="Link to this definition">¶</a></dt>
-<dd><p>Calculates the power production (in MWh) for the plant when detailed turbine and tailwater data is not available.</p>
-<p>The calculation is based on the turbine flow, hydraulic head, and efficiency of the plant.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>float</strong> – The power production of the plant in MWh for the current timestep.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.power_plant.PowerPlant.determine_production_detailed">
-<span class="sig-name descname"><span class="pre">determine_production_detailed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.power_plant.PowerPlant.determine_production_detailed" title="Link to this definition">¶</a></dt>
-<dd><p>Calculates the power production (in MWh) when detailed turbine and tailwater data is available.</p>
-<p>This method takes into account the turbine characteristics and the tailwater level to compute
-more precise power production.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>float</strong> – The detailed power production of the plant in MWh for the current timestep.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.power_plant.PowerPlant.determine_reward">
-<span class="sig-name descname"><span class="pre">determine_reward</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.power_plant.PowerPlant.determine_reward" title="Link to this definition">¶</a></dt>
-<dd><p>Calculates the reward based on the power production of the plant.</p>
-<p>The reward is determined by evaluating the power production through either the general production
-method or the detailed method based on the availability of tailwater and turbine data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>float</strong> – The calculated reward based on the power production.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.power_plant.PowerPlant.determine_turbine_flow">
-<span class="sig-name descname"><span class="pre">determine_turbine_flow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.power_plant.PowerPlant.determine_turbine_flow" title="Link to this definition">¶</a></dt>
-<dd><p>Determines the flow through the turbines, bounded by the minimum and maximum turbine flow.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>float</strong> – Flow through the turbines, in cubic meters per second.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.power_plant.PowerPlant.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#morl4water.core.models.power_plant.PowerPlant.reset" title="Link to this definition">¶</a></dt>
-<dd><p>Resets the power plant state, including clearing the power production history.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>None</strong> – This method does not return a value but modifies the internal state.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+          <section id="power-plant-model">
+<span id="power-plant"></span><h1>Power Plant Model<a class="headerlink" href="#power-plant-model" title="Link to this heading">¶</a></h1>
 </section>
 
         </article>
@@ -455,37 +310,8 @@ method or the detailed method based on the availability of tailwater and turbine
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Power Plant Model</a><ul>
-<li><a class="reference internal" href="#morl4water.core.models.power_plant.PowerPlant"><code class="docutils literal notranslate"><span class="pre">PowerPlant</span></code></a><ul>
-<li><a class="reference internal" href="#morl4water.core.models.power_plant.PowerPlant.determine_consumption"><code class="docutils literal notranslate"><span class="pre">PowerPlant.determine_consumption()</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.power_plant.PowerPlant.determine_info"><code class="docutils literal notranslate"><span class="pre">PowerPlant.determine_info()</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.power_plant.PowerPlant.determine_month"><code class="docutils literal notranslate"><span class="pre">PowerPlant.determine_month()</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.power_plant.PowerPlant.determine_production"><code class="docutils literal notranslate"><span class="pre">PowerPlant.determine_production()</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.power_plant.PowerPlant.determine_production_detailed"><code class="docutils literal notranslate"><span class="pre">PowerPlant.determine_production_detailed()</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.power_plant.PowerPlant.determine_reward"><code class="docutils literal notranslate"><span class="pre">PowerPlant.determine_reward()</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.power_plant.PowerPlant.determine_turbine_flow"><code class="docutils literal notranslate"><span class="pre">PowerPlant.determine_turbine_flow()</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.power_plant.PowerPlant.reset"><code class="docutils literal notranslate"><span class="pre">PowerPlant.reset()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
