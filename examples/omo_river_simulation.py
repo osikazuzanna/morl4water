@@ -1,7 +1,7 @@
 import numpy as np
 from pathlib import Path
 from gymnasium.spaces import Box
-from gymnasium.wrappers.time_limit import TimeLimit
+from gymnasium.wrappers import TimeLimit
 from core.envs.water_management_system import WaterManagementSystem
 from core.models.reservoir import Reservoir
 from core.models.weir import Weir
@@ -44,7 +44,7 @@ def create_omo_river_env(custom_obj = None, render_mode=None) -> WaterManagement
         max_action=[1064], #From Yugdeep it is equal to turbine_max_flow_rate (implemented in scaling actions back after rbf network)
         integration_timestep_size=relativedelta(minutes=720), #integration timestep in Omo is 12 hours ()
         objective_function=Objective.no_objective,
-        stored_water=11750000000.0, #initial state 11750000000.0
+        stored_water=11750000000.0/2, #initial state 11750000000.0
         evap_rates=np.loadtxt(data_directory / "reservoirs" / "evap_GIBE_III.txt"), # cm/month
         evap_rates_timestep_size=relativedelta(months=1), # TODO How does it work again?
         storage_to_minmax_rel=np.loadtxt(data_directory / "reservoirs" / "store_min_max_release_GIBE_III.txt"),#m^3/s #Yugdeep does not change the max/min actions based on storage. The file shows contant min and max value 
@@ -60,9 +60,9 @@ def create_omo_river_env(custom_obj = None, render_mode=None) -> WaterManagement
         min_turbine_flow=0,
         max_turbine_flow=1064,
         head_start_level=9, #level of the turbine needed for power calc
-        max_capacity=1870, # maximal capacity of power production in Mw
+        max_capacity=1870, # maximal capacity of power production
         reservoir=GIBE_III_reservoir,
-        normalize_objective=1391280 * 2  #the max amount of electricity produced possible in one month based on the max capacity : 31*24*max_capacity, times 2 because it shares an objective with Koysha
+        normalize_objective= 1391280 * 2 #TODO #the max amount of electricity produced possible in one month based on the max capacity
     )   
     #Koysha
     KOYSHA_reservoir = Reservoir(
@@ -89,7 +89,7 @@ def create_omo_river_env(custom_obj = None, render_mode=None) -> WaterManagement
         head_start_level=8.5, #level of the turbine needed for power calc
         max_capacity=2160.0, # maximal capacity of power production
         reservoir=GIBE_III_reservoir,
-        normalize_objective= 1607040.0 * 2 #the max amount of electricity produced possible in one month based on the max capacity
+        normalize_objective= 1607040.0 * 2 #TODO #the max amount of electricity produced possible in one month based on the max capacity
     )
 
     #IRRIGATION DISTRICTS
@@ -106,7 +106,7 @@ def create_omo_river_env(custom_obj = None, render_mode=None) -> WaterManagement
         np.loadtxt(data_directory / "irrigation" / "irr_demand_Omorate.txt"),
         Objective.deficit_minimised,
         "Omorate_deficit_minimised",
-        normalize_objective=328.39 #simply the highest monthly demand in a year
+        normalize_objective=522.68 #simply the highest monthly demand in a year
     )
 
     # -------------------------------- Testing -------------------------------------------------------

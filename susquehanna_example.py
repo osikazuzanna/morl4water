@@ -30,7 +30,7 @@ def run_susquehanna():
                         final_truncated,
                         final_info
                     ) = water_management_system.step(action)
-            print(f'Observation: {final_observation}')
+            print(f'Observation: {type(final_observation)}')
             print(f'Reward: {final_reward}')
             all_rewards=all_rewards+final_reward
             

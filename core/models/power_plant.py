@@ -7,37 +7,36 @@ import numpy as np
 
 class PowerPlant(Facility):
     """
-    Class to represent a Hydro-energy Powerplant.
+    Class to represent Hydro-energy Powerplant
 
-    This class models a hydroelectric power plant, including its power production capabilities,
-    water consumption, and the relationship between water levels and energy generation.
-
-    Attributes
-    ----------
+    Attributes:
+    -----------
     name : str
-        Identifier for the power plant.
+        identifier
     efficiency : float
-        Efficiency coefficient (mu) used in hydropower formula.
+        Efficiency coefficient (mu) used in hydropower formula
     max_turbine_flow : float
-        Maximum possible flow that can be passed through the turbines for the purpose of hydroenergy production.
+        Maximum possible flow that can be passed through the turbines for the
+        purpose of hydroenergy production
     head_start_level : float
-        Minimum elevation of water level that is used to calculate hydraulic head for hydropower production.
+        Minimum elevation of water level that is used to calculate hydraulic
+        head for hydropower production
     max_capacity : float
-        Total design capacity (mW) of the plant.
+        Total design capacity (mW) of the plant
     water_level_coeff : float
-        Coefficient that determines the water level based on the volume of outflow.
+        Coefficient that determines the water level based on the volume of outflow
+        Used to calculate at what level the head of the power plant operates
     water_usage : float
-        Fraction of water used by the power plant for production.
-    production_vector : np.ndarray
-        Vector that stores the power production history of the plant.
-    tailwater : np.array
-        Array of tailwater data used for detailed power production calculations.
-    turbines : np.array
-        Array representing turbine flow data.
-    n_turbines : int
-        Number of turbines in the power plant.
-    energy_prices : np.array
-        Energy price data used for production cost calculations.
+        Amount of water  that is used by plant, decimal coefficient
+
+    Methods:
+    ----------
+    determine_reward():
+        Calculates the reward (power generation) given the values of its attributes
+    determine_consumption():
+        Determines how much water is consumed by the power plant
+    determine_info():
+        Returns info about the hydro-energy powerplant
     """
 
     def __init__(
@@ -58,42 +57,6 @@ class PowerPlant(Facility):
         n_turbines: int = 0,
         energy_prices: np.array = None
     ) -> None:
-        """
-        Initializes a Hydro-energy Powerplant object.
-
-        Parameters
-        ----------
-        name : str
-            The name/identifier for the power plant.
-        objective_function : callable
-            Function to calculate the reward based on the power production.
-        objective_name : str
-            Name of the objective.
-        efficiency : float
-            Efficiency of the plant in converting water flow to energy.
-        min_turbine_flow : float, optional
-            Minimum turbine flow, default is 0.0.
-        normalize_objective : float, optional
-            Normalization factor for the objective function, default is 0.0.
-        max_turbine_flow : float, optional
-            Maximum turbine flow, default is 0.0.
-        head_start_level : float, optional
-            Minimum water level required for generating power, default is 0.0.
-        max_capacity : float, optional
-            Maximum design capacity of the plant in MW, default is 0.0.
-        reservoir : Reservoir, optional
-            Reservoir object associated with the power plant, default is None.
-        water_usage : float, optional
-            Water usage factor for the plant, default is 0.0.
-        tailwater : np.array, optional
-            Tailwater data for detailed turbine calculations, default is None.
-        turbines : np.array, optional
-            Turbine capacity data, default is None.
-        n_turbines : int, optional
-            Number of turbines in the plant, default is 0.
-        energy_prices : np.array, optional
-            Array of energy price data, default is None.
-        """
         super().__init__(name, objective_function, objective_name, normalize_objective)
         self.efficiency: float = efficiency
         self.max_turbine_flow: float = max_turbine_flow
@@ -109,27 +72,17 @@ class PowerPlant(Facility):
         self.energy_prices = energy_prices
 
     def determine_turbine_flow(self) -> float:
-        """
-        Determines the flow through the turbines, bounded by the minimum and maximum turbine flow.
-
-        Returns
-        -------
-        float
-            Flow through the turbines, in cubic meters per second.
-        """
         return max(self.min_turbine_flow, min(self.max_turbine_flow, self.get_inflow(self.timestep)))
 
     # Constants are configured as parameters with default values
     def determine_production(self) -> float:
         """
-        Calculates the power production (in MWh) for the plant when detailed turbine and tailwater data is not available.
+        Calculates power production in MWh , when tailwater and turbine data is not available
 
-        The calculation is based on the turbine flow, hydraulic head, and efficiency of the plant.
-
-        Returns
-        -------
+        Returns:
+        ----------
         float
-            The power production of the plant in MWh for the current timestep.
+            Plant's power production in MWh
         """
         m3_to_kg_factor: int = 1000
         w_Mw_conversion: float = 1e-6
@@ -161,17 +114,8 @@ class PowerPlant(Facility):
 
 
     def determine_production_detailed(self) -> float:
-        """
-        Calculates the power production (in MWh) when detailed turbine and tailwater data is available.
-
-        This method takes into account the turbine characteristics and the tailwater level to compute 
-        more precise power production.
-
-        Returns
-        -------
-        float
-            The detailed power production of the plant in MWh for the current timestep.
-        """
+        """Calculates power production when tailwater information and information regarding turbines is known.
+        Assumes metric system"""
 
         cubicFeetToCubicMeters = 0.0283  # 1 cf = 0.0283 m3
         feetToMeters = 0.3048  # 1 ft = 0.3048 m
@@ -218,15 +162,17 @@ class PowerPlant(Facility):
 
     def determine_reward(self) -> float:
         """
-        Calculates the reward based on the power production of the plant.
+        Determines reward for the power plant using the power production.
 
-        The reward is determined by evaluating the power production through either the general production
-        method or the detailed method based on the availability of tailwater and turbine data.
+        Parameters:
+        -----------
+        objective_function : (float) -> float
+            Function calculating the objective given the power production.
 
-        Returns
-        -------
+        Returns:
+        ----------
         float
-            The calculated reward based on the power production.
+            Reward.
         """
 
         if self.turbines is not None and self.tailwater is not None:
@@ -236,27 +182,23 @@ class PowerPlant(Facility):
 
     def determine_consumption(self) -> float:
         """
-        Calculates the water consumption of the plant.
+        Determines water consumption.
 
-        The consumption is based on the turbine flow and the water usage factor.
-
-        Returns
-        -------
+        Returns:
+        ----------
         float
-            The amount of water consumed by the plant in cubic meters per second.
+            How much water is consumed
         """
         return self.determine_turbine_flow() * self.water_usage
 
     def determine_info(self) -> dict:
         """
-        Returns key information about the hydro-energy power plant.
+        Determines info of hydro-energy power plant
 
-        This includes the name, inflow, outflow, monthly production, water usage, and total production.
-
-        Returns
-        -------
+        Returns:
+        ----------
         dict
-            A dictionary with the power plant's key information.
+            Info about power plant (name, inflow, outflow, water usage, timestep, total production)
         """
         return {
             "name": self.name,
@@ -268,26 +210,8 @@ class PowerPlant(Facility):
         }
 
     def determine_month(self) -> int:
-        """
-        Returns the current month based on the timestep.
-
-        The method assumes the timestep is provided as a monthly index.
-
-        Returns
-        -------
-        int
-            The current month as an integer (0-11).
-        """
         return self.timestep % 12
 
     def reset(self) -> None:
-        """
-        Resets the power plant state, including clearing the power production history.
-
-        Returns
-        -------
-        None
-            This method does not return a value but modifies the internal state.
-        """
         super().reset()
         self.production_vector = np.empty(0, dtype=np.float64)

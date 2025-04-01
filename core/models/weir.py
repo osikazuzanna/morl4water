@@ -4,54 +4,44 @@ import numpy as np
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
 from numpy.core.multiarray import interp as compiled_interp
-import numpy as np
-from abc import ABC, abstractmethod
-from datetime import datetime
-from dateutil.relativedelta import relativedelta
-from gymnasium.spaces import Space, Box
-from gymnasium.core import ObsType, ActType
-from typing import SupportsFloat, Optional
+
 
 class Weir(ControlledFacility):
     """
-    A class used to represent a Weir, a type of controlled reservoir in the simulation.
-
-    This class models the behavior of a weir, including water storage, outflow release, and reward calculation.
-    It incorporates control actions to manage water flow and evaluates performance based on objective functions.
+    A class used to represent reservoirs of the problem
 
     Attributes
     ----------
-    name : str
-        Lowercase, non-spaced name of the weir.
-    storage_vector : np.array
-        Vector holding the volume of water in the weir throughout the simulation horizon (in cubic meters).
-    level_vector : np.array
-        Vector holding the elevation (height) of the water in the weir throughout the simulation horizon (in meters).
-    release_vector : np.array
-        Vector holding the actual average release per timestep from the weir (in cubic meters per second).
-    evap_rates : np.array
-        Monthly evaporation rates for the weir (in centimeters).
-    stored_water : float
-        The current volume of water stored in the weir (in cubic meters).
-    spillage : float
-        The amount of water spilling from the weir.
-    should_split_release : bool
-        Flag indicating if the release should be split into different destinations.
-    objective_function : callable
-        Function to evaluate the reward based on the stored water.
-    objective_name : str
-        Name of the objective function.
-    integration_timestep_size : relativedelta
-        Time resolution for the integration process (typically a month or smaller).
-    max_capacity : float
-        Maximum water storage capacity of the weir (in cubic meters).
-    max_action : list[float]
-        Maximum allowable action values for controlling water release.
-    observation_space : Box
-        Action space for the simulation environment.
-    action_space : Box
-        Observation space for the simulation environment.
-    
+    name: str
+        Lowercase non-spaced name of the reservoir
+    storage_vector: np.array (1xH)
+        m3
+        A vector that holds the volume of the water in the reservoir
+        throughout the simulation horizon
+    level_vector: np.array (1xH)
+        m
+        A vector that holds the elevation of the water in the reservoir
+        throughout the simulation horizon
+    release_vector: np.array (1xH)
+        m3/s
+        A vector that holds the actual average release per month
+        from the reservoir throughout the simulation horizon
+    evap_rates: np.array (1x12)
+        cm
+        Monthly evaporation rates of the reservoir
+
+    Methods
+    -------
+    determine_info()
+        Return dictionary with parameters of the reservoir.
+    storage_to_level(h=float)
+        Returns the level(height) based on volume.
+    level_to_storage(s=float)
+        Returns the volume based on level(height).
+    level_to_surface(h=float)
+        Returns the surface area based on level.
+    determine_outflow(action: float)
+        Returns average monthly water release.
     """
 
     def __init__(
@@ -68,32 +58,6 @@ class Weir(ControlledFacility):
         action_space = Box(low=0, high=1),
 
                 ) -> None:
-        """
-        Initializes a Weir object with given parameters.
-
-        Parameters
-        ----------
-        name : str
-            The name of the weir.
-        max_capacity : float
-            The maximum storage capacity of the weir in cubic meters.
-        max_action : list[float]
-            The maximum allowable control actions for managing water release.
-        objective_function : callable
-            Function to evaluate the reward based on the stored water.
-        integration_timestep_size : relativedelta
-            Time step size for integration.
-        objective_name : str, optional
-            The name of the objective function (default is an empty string).
-        stored_water : float, optional
-            The initial amount of water stored in the weir (default is 0).
-        spillage : float, optional
-            The amount of water spilling from the weir (default is 0).
-        observation_space : Box, optional
-            The action space for the simulation environment (default range [0, 1]).
-        action_space : Box, optional
-            The observation space for the simulation environment (default range [0, 1]).
-        """
         super().__init__(name, observation_space, action_space, max_capacity, max_action)
         self.stored_water: float = stored_water
 
@@ -115,34 +79,10 @@ class Weir(ControlledFacility):
 
 
     def determine_reward(self) -> float:
-        """
-        Calculates the reward for the weir based on the stored water.
-
-        Returns
-        -------
-        float
-            The calculated reward value based on the stored water.
-        """
         #Pass average inflow (which is stored_water ) to reward function
         return self.objective_function(self.stored_water)
 
     def determine_outflow(self, actions: np.array) -> list[float]:
-        """
-        Determines the average monthly water release based on the control actions.
-
-        This method evaluates the inflow to the weir, scales the control actions, and calculates
-        the outflow to different destinations.
-
-        Parameters
-        ----------
-        actions : np.array
-            Array of control actions, where each value represents the percentage of water to release to a destination.
-
-        Returns
-        -------
-        list[float]
-            A list containing the average monthly release from the weir.
-        """
 
         destination_1_release = np.empty(0, dtype=np.float64)
         weir_observation_lst = []
@@ -178,16 +118,6 @@ class Weir(ControlledFacility):
         return average_release
 
     def determine_info(self) -> dict:
-        """
-        Returns key information about the weir.
-
-        The dictionary contains the name of the weir and its average release rate.
-
-        Returns
-        -------
-        dict
-            A dictionary with information about the weir.
-        """
         info = {
             "name": self.name,
             "average_release": self.stored_water,
@@ -195,43 +125,15 @@ class Weir(ControlledFacility):
         return info
 
     def determine_observation(self) -> float:
-        """
-        Returns the current stored water level as part of the state space.
-
-        Returns
-        -------
-        float
-            The current stored water in the weir.
-        """
         if self.stored_water > 0:
             return self.stored_water
         else:
             return 0.0
 
     def is_terminated(self) -> bool:
-        """
-        Determines whether the simulation should terminate.
-
-        The simulation terminates if the weir's stored water exceeds its capacity or is below zero.
-
-        Returns
-        -------
-        bool
-            True if the simulation should terminate, otherwise False.
-        """
         return self.stored_water > self.max_capacity or self.stored_water < 0
     
     def reset(self) -> None:
-        """
-        Resets the state of the weir to its initial condition.
-
-        The weir's stored water and other vectors are reset to their initial values at the start of a new simulation.
-
-        Returns
-        -------
-        None
-            This method does not return a value, but modifies the internal state.
-        """
         super().reset()
         stored_water = self.storage_vector[0]
         self.storage_vector = [stored_water]

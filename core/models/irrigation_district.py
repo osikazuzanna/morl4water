@@ -1,11 +1,5 @@
 from core.models.facility import Facility
-import numpy as np
-from abc import ABC, abstractmethod
-from datetime import datetime
-from dateutil.relativedelta import relativedelta
-from gymnasium.spaces import Space, Box
-from gymnasium.core import ObsType, ActType
-from typing import SupportsFloat, Optional
+
 
 class IrrigationDistrict(Facility):
     """
@@ -83,7 +77,7 @@ class IrrigationDistrict(Facility):
         float
             Reward as calculated by the objective function.
         """
-        return self.objective_function(self.get_current_demand(), self.get_inflow(self.timestep))
+        return self.objective_function(self.get_current_demand(), float(self.get_inflow(self.timestep)))
 
     def determine_consumption(self) -> float:
         """

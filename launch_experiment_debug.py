@@ -21,7 +21,7 @@ from gymnasium.wrappers.record_video import RecordVideo
 from mo_gymnasium.utils import MORecordEpisodeStatistics
 import examples.nile_river_simulation
 import examples.susquehanna_river_simulation
-
+import examples.omo_river_simulation
 from morl_baselines.common.evaluation import seed_everything
 from morl_baselines.multi_policy.capql.capql import CAPQL
 from morl_baselines.multi_policy.envelope.envelope import Envelope
@@ -167,16 +167,18 @@ def autotag() -> str:
 
 
 seed = 1
-env_id = 'nile-v0'
+env_id = 'omo-v0'
 gamma = 0.99
-algo = 'gpi_ls_continuous'
+algo = 'capql'
 seed_everything(seed)
 #init_hyperparams={'scaling_factor': [0.1,0.1,0.1,0.1,0.1]}
-init_hyperparams={}
+init_hyperparams={'learning_starts':10, 'batch_size':5}
+train_hyperparams={'eval_freq':10}
 wandb_entity='osikaz'
 num_timesteps=10000
-ref_point=[0, -240, -240, 0]
-train_hyperparams={}
+#ref_point=[0, -240, -240, 0]
+#ref_point=[0.0, 0.0, 0.0, 0.0, 0.0, -2190.0]
+ref_point=[0,-144,-144]
 env = mo_gym.make(env_id)
 eval_env = mo_gym.make(env_id)
 env = MORecordEpisodeStatistics(env, gamma=gamma)

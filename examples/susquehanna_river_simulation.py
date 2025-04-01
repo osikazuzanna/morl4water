@@ -111,7 +111,7 @@ class WaterManagementSystemWithWaterLevels(WaterManagementSystem):
 
         self.observation, _ = self._determine_observation()
         #We add this recalculation from storage to levels
-        observation = [self.water_systems[2].storage_to_level(self.observation[0])]
+        observation = [self.water_systems[2].storage_to_level(self.observation[0])/self.max_capacity_level]
         observation.append(0.0)
         # Reset rewards
         for key in self.rewards.keys():
@@ -120,7 +120,7 @@ class WaterManagementSystemWithWaterLevels(WaterManagementSystem):
         for water_system in self.water_systems:
             water_system.current_date = self.start_date
             water_system.reset()
-        return observation, self._determine_info()
+        return np.array(observation).flatten(), self._determine_info()
 
     #We overwrite the step method
     def step(self, action: np.array) -> tuple[np.array, np.array, bool, bool, dict]:

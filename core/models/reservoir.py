@@ -8,43 +8,40 @@ from numpy.core.multiarray import interp as compiled_interp
 
 class Reservoir(ControlledFacility):
     """
-    A class representing a reservoir within a water management system.
-
-    This class is used to model the storage, release, and evaporation processes of a reservoir, including
-    the management of water levels, inflows, outflows, and associated evaporation. The reservoir interacts
-    with the surrounding environment and is controlled by various parameters such as release rates, storage,
-    and evaporation rates.
+    A class used to represent reservoirs of the problem
 
     Attributes
     ----------
-    name : str
-        A lowercase, non-spaced name for the reservoir.
-    stored_water : float
-        The current volume of water stored in the reservoir (in m³).
-    evap_rates : np.array
-        Monthly evaporation rates (in cm).
-    evap_rates_timestep : relativedelta
-        The timestep for evaporation rate calculation.
-    storage_to_minmax_rel : list[list[float]]
-        Relationship between storage and minimum/maximum release rates.
-    storage_to_level_rel : list[list[float]]
-        Relationship between storage and water level (height).
-    storage_to_surface_rel : list[list[float]]
-        Relationship between storage and surface area of the reservoir.
-    storage_vector : list[float]
-        List tracking the volume of water in the reservoir over time.
-    level_vector : list[float]
-        List tracking the elevation (height) of the water in the reservoir over time.
-    release_vector : list[float]
-        List tracking the actual water release per timestep.
-    integration_timestep_size : relativedelta
-        The timestep size used for numerical integration of reservoir processes.
-    spillage : float
-        Amount of water lost due to spillage.
-    objective_function : callable
-        The objective function to evaluate the reservoir’s performance (based on stored water).
-    objective_name : str
-        The name of the objective function.
+    name: str
+        Lowercase non-spaced name of the reservoir
+    storage_vector: np.array (1xH)
+        m3
+        A vector that holds the volume of the water in the reservoir
+        throughout the simulation horizon
+    level_vector: np.array (1xH)
+        m
+        A vector that holds the elevation of the water in the reservoir
+        throughout the simulation horizon
+    release_vector: np.array (1xH)
+        m3/s
+        A vector that holds the actual average release per month
+        from the reservoir throughout the simulation horizon
+    evap_rates: np.array (1x12)
+        cm
+        Monthly evaporation rates of the reservoir
+
+    Methods
+    -------
+    determine_info()
+        Return dictionary with parameters of the reservoir.
+    storage_to_level(h=float)
+        Returns the level(height) based on volume.
+    level_to_storage(s=float)
+        Returns the volume based on level(height).
+    level_to_surface(h=float)
+        Returns the surface area based on level.
+    determine_outflow(action: float)
+        Returns average monthly water release.
     """
 
     def __init__(
@@ -66,26 +63,6 @@ class Reservoir(ControlledFacility):
         action_space = Box(low=0, high=1),
 
                 ) -> None:
-        """
-        Initializes a Reservoir instance with the specified parameters.
-
-        Args:
-            name (str): The name of the reservoir.
-            max_capacity (float): The maximum capacity of the reservoir.
-            max_action (list[float]): Maximum release actions for the reservoir.
-            objective_function (callable): Function that evaluates the reservoir’s objective.
-            integration_timestep_size (relativedelta): Timestep for integrating the reservoir’s processes.
-            evap_rates (list[float]): Monthly evaporation rates in cm.
-            evap_rates_timestep_size (relativedelta): Time step size for the evaporation rates.
-            storage_to_minmax_rel (list[list[float]]): Relationship between storage and release rates.
-            storage_to_level_rel (list[list[float]]): Relationship between storage and water level.
-            storage_to_surface_rel (list[list[float]]): Relationship between storage and surface area.
-            objective_name (str, optional): The name of the objective function.
-            stored_water (float, optional): The initial amount of stored water.
-            spillage (float, optional): The amount of spillage.
-            observation_space (Box, optional): The observation space for the environment.
-            action_space (Box, optional): The action space for the environment.
-        """
         super().__init__(name, observation_space, action_space, max_capacity, max_action)
         self.stored_water: float = stored_water
 
@@ -111,29 +88,10 @@ class Reservoir(ControlledFacility):
 
     def determine_reward(self) -> float:
         # Pass water level to reward function
-        """
-        Calculates the reward for the reservoir based on its current stored water level.
-
-        This method uses the objective function to evaluate the reward based on the water level, which is derived
-        from the stored water volume.
-
-        Returns:
-            float: The calculated reward for the reservoir.
-        """
         return self.objective_function(self.storage_to_level(self.stored_water))
 
     def determine_outflow(self, actions: np.array) -> list[float]:
-        """
-        Determines the average monthly water release from the reservoir based on the given actions.
 
-        The release is adjusted according to the current storage level, evaporation rates, and actions taken.
-
-        Args:
-            actions (np.array): Array of release actions that control the reservoir's water release.
-
-        Returns:
-            list[float]: The average release of water per timestep.
-        """
         current_storage = self.storage_vector[-1]
         #check if we are releasing to one destination or more
         if self.should_split_release == True:
@@ -195,15 +153,6 @@ class Reservoir(ControlledFacility):
         return average_release
 
     def determine_info(self) -> dict:
-        """
-        Returns information about the current state of the reservoir.
-
-        This includes details such as the current stored water volume, water level, release, and evaporation rates.
-
-        Returns:
-            dict: A dictionary containing key information about the reservoir (e.g., name, stored water, 
-                current level, current release, evaporation rates).
-        """
         info = {
             "name": self.name,
             "stored_water": self.stored_water,
@@ -214,43 +163,17 @@ class Reservoir(ControlledFacility):
         return info
 
     def determine_observation(self) -> float:
-        """
-        Retrieves the current observation of the reservoir, which is the amount of stored water.
-
-        Returns:
-            float: The current stored water in the reservoir (in m³). If no water is stored, returns 0.
-        """
         if self.stored_water > 0:
             return self.stored_water
         else:
             return 0.0
 
     def is_terminated(self) -> bool:
-        """
-        Checks if the reservoir's simulation has reached a termination condition.
-
-        The simulation is terminated if the stored water exceeds the maximum capacity or falls below 0.
-
-        Returns:
-            bool: True if the simulation should be terminated (due to overflow or depletion), otherwise False.
-        """
         return self.stored_water > self.max_capacity or self.stored_water < 0
     
 
 
     def determine_time_idx(self) -> int:
-        """
-        Determines the index for the evaporation rate based on the current date and timestep.
-
-        The function maps the current date to the appropriate index in the evaporation rate array, considering
-        the timestep size (months, days, or hours).
-
-        Returns:
-            int: The index corresponding to the current date in the evaporation rate array.
-
-        Raises:
-            ValueError: If the timestep size is unsupported (i.e., not months, days, or hours).
-        """
         if self.evap_rates_timestep.months > 0:
             return self.current_date.month - 1
         elif self.evap_rates_timestep.days > 0:
@@ -262,54 +185,18 @@ class Reservoir(ControlledFacility):
 
 
     def storage_to_level(self, s: float) -> float:
-        """
-        Converts a given storage value to the corresponding water level (height) based on predefined relationships.
-
-        Args:
-            s (float): The storage value (in m³) to be converted.
-
-        Returns:
-            float: The corresponding water level (height) in meters.
-        """
         return self.modified_interp(s, self.storage_to_level_rel[0], self.storage_to_level_rel[1])
 
     def storage_to_surface(self, s: float) -> float:
-        """
-        Converts a given storage value to the corresponding surface area based on predefined relationships.
-
-        Args:
-            s (float): The storage value (in m³) to be converted.
-
-        Returns:
-            float: The corresponding surface area (in m²).
-        """
         return self.modified_interp(s, self.storage_to_surface_rel[0], self.storage_to_surface_rel[1])
 
     def level_to_minmax(self, h) -> tuple[np.ndarray, np.ndarray]:
-        """
-        Calculates the minimum and maximum possible release rates based on the given water level.
-
-        Args:
-            h (float): The water level (height) to calculate the release rates for.
-
-        Returns:
-            tuple: A tuple containing two arrays - the minimum and maximum release rates.
-        """
         return (
             np.interp(h, self.rating_curve[0], self.rating_curve[1]),
             np.interp(h, self.rating_curve[0], self.rating_curve[2]),
         )
 
     def storage_to_minmax(self, s) -> tuple[np.ndarray, np.ndarray]:
-        """
-        Calculates the minimum and maximum possible release rates based on the given storage.
-
-        Args:
-            s (float): The storage value (in m³) to calculate the release rates for.
-
-        Returns:
-            tuple: A tuple containing two arrays - the minimum and maximum release rates.
-        """
         return (
             np.interp(s, self.storage_to_minmax_rel[0], self.storage_to_minmax_rel[1]),
             np.interp(s, self.storage_to_minmax_rel[0], self.storage_to_minmax_rel[2]),
@@ -317,19 +204,6 @@ class Reservoir(ControlledFacility):
 
     @staticmethod
     def modified_interp(x: float, xp: float, fp: float, left=None, right=None) -> float:
-        """
-        Performs linear interpolation between two points with custom handling for out-of-bound values.
-
-        Args:
-            x (float): The input value to interpolate.
-            xp (float): The known input values for interpolation.
-            fp (float): The corresponding output values for interpolation.
-            left (optional): The value to return if x is less than the smallest value in xp.
-            right (optional): The value to return if x is greater than the largest value in xp.
-
-        Returns:
-            float: The interpolated value based on the provided input values.
-        """
         fp = np.asarray(fp)
 
         return compiled_interp(x, xp, fp, left, right)
@@ -351,11 +225,6 @@ class Reservoir(ControlledFacility):
 
 
     def reset(self) -> None:
-        """
-        Resets the state of the reservoir to its initial conditions for a new simulation.
-
-        This method resets the storage, release, and level vectors, and restores the initial stored water volume.
-        """
         super().reset()
         stored_water = self.storage_vector[0]
         self.storage_vector = [stored_water]

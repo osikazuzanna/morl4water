@@ -1,7 +1,7 @@
 import numpy as np
 from pathlib import Path
 from gymnasium.spaces import Box
-from gymnasium.wrappers.time_limit import TimeLimit
+from gymnasium.wrappers import TimeLimit
 from core.envs.water_management_system import WaterManagementSystem
 from core.models.reservoir import Reservoir
 from core.models.flow import Flow, Inflow
