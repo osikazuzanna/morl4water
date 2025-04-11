@@ -23,6 +23,9 @@ pip install morl4water
 An example on how to run a simulation:
 
 ```python
+import mo_gymansium
+import morl4water.examples
+
 water_management_system = mo_gymnasium.make('omo-v0')
 
 def run_omo():
