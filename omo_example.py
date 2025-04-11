@@ -30,7 +30,7 @@ def run_omo():
                         final_info
                     ) = water_management_system.step(action)
             # print(f'Final final_info: ', final_info)
-            print(f'Observation: {type(final_observation)}')
+            print(f'Observation: {final_observation}')
             print(f'Reward: {final_reward}')
             
         else:

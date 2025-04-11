@@ -201,13 +201,20 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/installation.html">Installation and Running</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/simulation_approach.html">Simulation Approach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/code_structure.html">Code Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/updating_facilities.html">Updating Facilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/updating_flows.html">Updating Flows</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quickstart/code_structure/index.html">Code Structure Overview</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Code Structure Overview</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/code_structure/updating_facilities.html">Updating Facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/code_structure/updating_flows.html">Updating Flows</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/creating_a_simulation.html">Creating a Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/implemented_simulations.html">Implemented Simulations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/running_a_simulation.html">Running a Simulation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quickstart/implemented_simulations/index.html">Water Simulations</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Water Simulations</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/implemented_simulations/nile.html">Nile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/implemented_simulations/susquehanna.html">Susquehanna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/implemented_simulations/omo.html">Omo</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">System Elements</span></p>
 <ul class="current">
@@ -266,170 +273,50 @@
 <dt class="sig sig-object py" id="morl4water.core.models.objective.Objective">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">morl4water.core.models.objective.</span></span><span class="sig-name descname"><span class="pre">Objective</span></span><a class="headerlink" href="#morl4water.core.models.objective.Objective" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A class containing static methods representing various objective functions
-used to evaluate water management strategies based on demand, supply, and custom conditions.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.objective.Objective.deficit_minimised">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deficit_minimised</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">demand</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">received</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.objective.Objective.deficit_minimised" title="Link to this definition">¶</a></dt>
-<dd><p>Returns the negative deficit between demand and received amounts, penalizing any shortfall.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>demand</strong> (<em>float</em>) – The required demand amount.</p></li>
-<li><p><strong>received</strong> (<em>float</em>) – The amount actually received.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Negative deficit calculated as -(demand - received), or 0 if received &gt;= demand.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.objective.Objective.deficit_squared_ratio_minimised">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deficit_squared_ratio_minimised</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">demand</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">received</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.objective.Objective.deficit_squared_ratio_minimised" title="Link to this definition">¶</a></dt>
-<dd><p>Returns the negative squared ratio of the deficit to the demand, penalizing larger deficits more heavily.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>demand</strong> (<em>float</em>) – The required demand amount.</p></li>
-<li><p><strong>received</strong> (<em>float</em>) – The amount actually received.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The negative squared ratio of the deficit, calculated as -((demand - received) / demand)^2,
-or 0 if received &gt;= demand.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.objective.Objective.identity">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">identity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.objective.Objective.identity" title="Link to this definition">¶</a></dt>
-<dd><p>Returns the input value unchanged.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>value</strong> (<em>float</em>) – The input value to return.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The input value itself.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.objective.Objective.is_greater_than_minimum">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_greater_than_minimum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minimum_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.objective.Objective.is_greater_than_minimum" title="Link to this definition">¶</a></dt>
-<dd><p>Checks if a value meets or exceeds a specified minimum value.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>minimum_value</strong> (<em>float</em>) – The minimum threshold value.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>1.0 if the value is greater than or equal to minimum_value, 0.0 otherwise.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.objective.Objective.is_greater_than_minimum_with_condition">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_greater_than_minimum_with_condition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minimum_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.objective.Objective.is_greater_than_minimum_with_condition" title="Link to this definition">¶</a></dt>
-<dd><p>Checks if a value meets a minimum threshold, contingent on a condition.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>minimum_value</strong> (<em>float</em>) – The minimum threshold value.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>1.0 if the condition is True and value is above the minimum, 0.0 otherwise.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.objective.Objective.no_objective">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">no_objective</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.objective.Objective.no_objective" title="Link to this definition">¶</a></dt>
-<dd><p>A placeholder objective that returns a fixed value of 0.0, used when no objective function is specified.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>*args</strong> – Any arguments passed will be ignored.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The value 0.0 as a default objective output.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.objective.Objective.scalar_identity">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scalar_identity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.objective.Objective.scalar_identity" title="Link to this definition">¶</a></dt>
-<dd><p>Scales an input value by a specified scalar.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>scalar</strong> (<em>float</em>) – The scaling factor to apply to the input value.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The input value multiplied by the scalar.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.objective.Objective.sequential_scalar">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sequential_scalar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.objective.Objective.sequential_scalar" title="Link to this definition">¶</a></dt>
-<dd><p>Scales an input value by a scalar from a specified list based on an index.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>scalar</strong> (<em>list</em><em>[</em><em>float</em><em>]</em>) – A list of scalars to be applied sequentially.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The input value multiplied by the scalar at the specified index.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.objective.Objective.supply_ratio_maximised">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">supply_ratio_maximised</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">demand</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">received</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.objective.Objective.supply_ratio_maximised" title="Link to this definition">¶</a></dt>
-<dd><p>Returns the ratio of received to demand, capped at 1.0 to maximize supply relative to demand.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>demand</strong> (<em>float</em>) – The required demand amount.</p></li>
-<li><p><strong>received</strong> (<em>float</em>) – The amount actually received.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The supply-to-demand ratio, capped at 1.0 if received exceeds demand.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 </dd></dl>
 

@@ -201,13 +201,20 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/installation.html">Installation and Running</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/simulation_approach.html">Simulation Approach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/code_structure.html">Code Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/updating_facilities.html">Updating Facilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/updating_flows.html">Updating Flows</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quickstart/code_structure/index.html">Code Structure Overview</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Code Structure Overview</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/code_structure/updating_facilities.html">Updating Facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/code_structure/updating_flows.html">Updating Flows</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/creating_a_simulation.html">Creating a Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/implemented_simulations.html">Implemented Simulations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/running_a_simulation.html">Running a Simulation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quickstart/implemented_simulations/index.html">Water Simulations</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Water Simulations</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/implemented_simulations/nile.html">Nile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/implemented_simulations/susquehanna.html">Susquehanna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/implemented_simulations/omo.html">Omo</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">System Elements</span></p>
 <ul class="current">
@@ -266,13 +273,12 @@
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">morl4water.core.models.reservoir_with_pump.</span></span><span class="sig-name descname"><span class="pre">ReservoirWithPump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_capacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integration_timestep_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">relativedelta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evap_rates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evap_rates_pump</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evap_rates_timestep_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">relativedelta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_to_minmax_rel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_to_level_rel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_to_surface_rel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_to_surface_rel_pump</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_to_level_rel_pump</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pumping_rules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inflows_pump</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stored_water_reservoir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stored_water_pump</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">observation_space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Box(0.0,</span> <span class="pre">1.0,</span> <span class="pre">(1,),</span> <span class="pre">float32)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action_space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Box(0.0,</span> <span class="pre">1.0,</span> <span class="pre">(1,),</span> <span class="pre">float32)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spillage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ControlledFacility</span></code></p>
-<p>A class used to represent reservoirs with a pump system that can pump water in and out of the reservoir,
-and manage the water storage and release. It combines functionalities of a reservoir and a pump station,
-incorporating additional control for managing inflows, evaporation, and releases.</p>
+<p>A class used to represent reservoirs with a pump of the problem.
+The pump can pump the water in and out of the reservoir as well as store the water</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.name_reservoir">
 <span class="sig-name descname"><span class="pre">name_reservoir</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.name_reservoir" title="Link to this definition">¶</a></dt>
-<dd><p>The lowercase, non-spaced name of the reservoir.</p>
+<dd><p>Lowercase non-spaced name of the reservoir</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
@@ -283,7 +289,7 @@ incorporating additional control for managing inflows, evaporation, and releases
 <dl class="py attribute">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.name_pump">
 <span class="sig-name descname"><span class="pre">name_pump</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.name_pump" title="Link to this definition">¶</a></dt>
-<dd><p>The lowercase, non-spaced name of the pump station.</p>
+<dd><p>Lowercase non-spaced name of the pumping station</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
@@ -294,7 +300,9 @@ incorporating additional control for managing inflows, evaporation, and releases
 <dl class="py attribute">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_vector">
 <span class="sig-name descname"><span class="pre">storage_vector</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_vector" title="Link to this definition">¶</a></dt>
-<dd><p>A vector containing the volume of water in the reservoir (in cubic meters) over the simulation horizon.</p>
+<dd><p>m3
+A vector that holds the volume of the water in the reservoir
+throughout the simulation horizon</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>np.array (1xH)</p>
@@ -305,7 +313,9 @@ incorporating additional control for managing inflows, evaporation, and releases
 <dl class="py attribute">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.level_vector">
 <span class="sig-name descname"><span class="pre">level_vector</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.level_vector" title="Link to this definition">¶</a></dt>
-<dd><p>A vector holding the elevation (height in meters) of water in the reservoir throughout the simulation horizon.</p>
+<dd><p>m
+A vector that holds the elevation of the water in the reservoir
+throughout the simulation horizon</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>np.array (1xH)</p>
@@ -316,7 +326,9 @@ incorporating additional control for managing inflows, evaporation, and releases
 <dl class="py attribute">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.release_vector">
 <span class="sig-name descname"><span class="pre">release_vector</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.release_vector" title="Link to this definition">¶</a></dt>
-<dd><p>A vector that holds the average release rate (in cubic meters per second) of water from the reservoir over time.</p>
+<dd><p>m3/s
+A vector that holds the actual average release per month
+from the reservoir throughout the simulation horizon</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>np.array (1xH)</p>
@@ -327,429 +339,115 @@ incorporating additional control for managing inflows, evaporation, and releases
 <dl class="py attribute">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.evap_rates">
 <span class="sig-name descname"><span class="pre">evap_rates</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.evap_rates" title="Link to this definition">¶</a></dt>
-<dd><p>Monthly evaporation rates (in centimeters) for the reservoir.</p>
+<dd><p>cm
+Monthly evaporation rates of the reservoir</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>np.array (1x12)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.evap_rates_pump">
-<span class="sig-name descname"><span class="pre">evap_rates_pump</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.evap_rates_pump" title="Link to this definition">¶</a></dt>
-<dd><p>Monthly evaporation rates (in centimeters) for the pump.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.array (1x12)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.evap_rates_timestep_size">
-<span class="sig-name descname"><span class="pre">evap_rates_timestep_size</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.evap_rates_timestep_size" title="Link to this definition">¶</a></dt>
-<dd><p>The timestep size used for evaporation calculations.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>relativedelta</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_minmax_rel">
-<span class="sig-name descname"><span class="pre">storage_to_minmax_rel</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_minmax_rel" title="Link to this definition">¶</a></dt>
-<dd><p>Relationships between the storage volume and the corresponding minimum and maximum possible releases.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[list[float]]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_level_rel">
-<span class="sig-name descname"><span class="pre">storage_to_level_rel</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_level_rel" title="Link to this definition">¶</a></dt>
-<dd><p>Relationships between the storage volume and the corresponding water level (height).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[list[float]]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_surface_rel">
-<span class="sig-name descname"><span class="pre">storage_to_surface_rel</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_surface_rel" title="Link to this definition">¶</a></dt>
-<dd><p>Relationships between the storage volume and the corresponding surface area of the reservoir.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[list[float]]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_surface_rel_pump">
-<span class="sig-name descname"><span class="pre">storage_to_surface_rel_pump</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_surface_rel_pump" title="Link to this definition">¶</a></dt>
-<dd><p>Relationships between the storage volume in the pump and the corresponding surface area.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[list[float]]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_level_rel_pump">
-<span class="sig-name descname"><span class="pre">storage_to_level_rel_pump</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_level_rel_pump" title="Link to this definition">¶</a></dt>
-<dd><p>Relationships between the storage volume in the pump and the corresponding water level (height).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[list[float]]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.pumping_rules">
-<span class="sig-name descname"><span class="pre">pumping_rules</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.pumping_rules" title="Link to this definition">¶</a></dt>
-<dd><p>A function that defines the pumping rules for transferring water between the pump and the reservoir.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Callable</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.inflows_pump">
-<span class="sig-name descname"><span class="pre">inflows_pump</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.inflows_pump" title="Link to this definition">¶</a></dt>
-<dd><p>A list of inflows to the pump, used to update the water level in the pump over time.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[float], optional</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.objective_name">
-<span class="sig-name descname"><span class="pre">objective_name</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.objective_name" title="Link to this definition">¶</a></dt>
-<dd><p>The name of the objective function, used for evaluation purposes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str, optional</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.stored_water_reservoir">
-<span class="sig-name descname"><span class="pre">stored_water_reservoir</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.stored_water_reservoir" title="Link to this definition">¶</a></dt>
-<dd><p>The initial amount of water in the reservoir (in cubic meters).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float, optional</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.stored_water_pump">
-<span class="sig-name descname"><span class="pre">stored_water_pump</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.stored_water_pump" title="Link to this definition">¶</a></dt>
-<dd><p>The initial amount of water in the pump (in cubic meters).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float, optional</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.observation_space">
-<span class="sig-name descname"><span class="pre">observation_space</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.observation_space" title="Link to this definition">¶</a></dt>
-<dd><p>Defines the observation space for the reservoir and pump system, used for reinforcement learning.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Box, optional</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.action_space">
-<span class="sig-name descname"><span class="pre">action_space</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.action_space" title="Link to this definition">¶</a></dt>
-<dd><p>Defines the action space for the reservoir and pump system, used for reinforcement learning.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Box, optional</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.spillage">
-<span class="sig-name descname"><span class="pre">spillage</span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.spillage" title="Link to this definition">¶</a></dt>
-<dd><p>The amount of water that overflows or is spilled from the system.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float, optional</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_info">
-<span class="sig-name descname"><span class="pre">determine_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_info" title="Link to this definition">¶</a></dt>
-<dd><p>Returns a dictionary containing key information about the current state of the system.
-The dictionary includes the name of the reservoir, stored water volume, current water level,
-current release rate, evaporation rates, and the pump level.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A dictionary with the following keys:
-- “name”: The name of the reservoir.
-- “stored_water”: The current volume of water in the reservoir.
-- “current_level”: The current water level in the reservoir (if available).
-- “current_release”: The current release rate from the reservoir (if available).
-- “evaporation_rates”: A list of monthly evaporation rates.
-- “pump_level”: The current volume of water in the pump.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
+<span class="sig-name descname"><span class="pre">determine_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_info" title="Link to this definition">¶</a></dt>
+<dd><p>Return dictionary with parameters of the reservoir.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_level">
+<span class="sig-name descname"><span class="pre">storage_to_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_level" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the level(height) based on volume.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.level_to_storage">
+<span class="sig-name descname"><span class="pre">level_to_storage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.level_to_storage" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the volume based on level(height).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.level_to_surface">
+<span class="sig-name descname"><span class="pre">level_to_surface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.level_to_surface" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the surface area based on level.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_outflow">
+<span class="sig-name descname"><span class="pre">determine_outflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_outflow" title="Link to this definition">¶</a></dt>
+<dd><p>Returns average monthly water release.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">determine_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd><p>Returns information about the reservoir.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_observation">
 <span class="sig-name descname"><span class="pre">determine_observation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_observation" title="Link to this definition">¶</a></dt>
-<dd><p>Returns the current state of the reservoir in terms of the stored water volume.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The volume of water currently stored in the reservoir.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_outflow">
-<span class="sig-name descname"><span class="pre">determine_outflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_outflow" title="Link to this definition">¶</a></dt>
-<dd><p>Determines the outflow (release rate) from the reservoir and pump system based on
-the given actions. The outflow is influenced by the current storage in both the
-reservoir and pump, as well as evaporation and the pumping/release rules.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>actions</strong> (<em>np.array</em>) – The action values representing the desired release rates (scaled by <cite>max_action</cite>).</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of release rates (in m³/s), which may be split among multiple destinations.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[float]</p>
-</dd>
-</dl>
-</dd></dl>
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">determine_outflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_reward">
 <span class="sig-name descname"><span class="pre">determine_reward</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_reward" title="Link to this definition">¶</a></dt>
-<dd><p>Calculates the reward based on the current storage of the reservoir.</p>
-<p>The reward is determined by passing the water level corresponding to the stored water
-in the reservoir through the objective function.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The computed reward, which is the result of the objective function applied to
-the current water level.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_time_idx">
 <span class="sig-name descname"><span class="pre">determine_time_idx</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_time_idx" title="Link to this definition">¶</a></dt>
-<dd><p>Determines the index corresponding to the current date’s time step for evaporation calculations.</p>
-<p>The method calculates the time index based on the timestep size, which could be in months,
-days, or hours. This is used to retrieve the correct evaporation rate for the current time step.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The index corresponding to the current time step for evaporation.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>int</p>
-</dd>
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ValueError</strong> – If the timestep size is unsupported (i.e., not months, days, or hours).</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.is_terminated">
 <span class="sig-name descname"><span class="pre">is_terminated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.is_terminated" title="Link to this definition">¶</a></dt>
-<dd><p>Checks if the simulation should terminate, based on the current stored water volume.
-The system terminates if the stored water exceeds the maximum capacity or goes below zero.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True if the system has reached a terminal state (i.e., water volume is out of bounds),
-False otherwise.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.level_to_minmax">
 <span class="sig-name descname"><span class="pre">level_to_minmax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.level_to_minmax" title="Link to this definition">¶</a></dt>
-<dd><p>Converts a given water level (height) to the corresponding minimum and maximum release rates.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>h</strong> (<em>float</em>) – The water level (height) for which to determine the min and max release rates.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A tuple containing two arrays: the minimum and maximum release rates corresponding to the given water level.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple[np.ndarray, np.ndarray]</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.modified_interp">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">modified_interp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.modified_interp" title="Link to this definition">¶</a></dt>
-<dd><p>A helper function that performs linear interpolation with modified behavior for handling
-values outside the interpolation range.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>float</em>) – The point at which to interpolate.</p></li>
-<li><p><strong>xp</strong> (<em>list</em><em>[</em><em>float</em><em>]</em>) – The list of x-values (storage or height).</p></li>
-<li><p><strong>fp</strong> (<em>list</em><em>[</em><em>float</em><em>]</em>) – The list of y-values (corresponding water levels or release rates).</p></li>
-<li><p><strong>left</strong> (<em>optional</em>) – The value to return if x is below the range of xp.</p></li>
-<li><p><strong>right</strong> (<em>optional</em>) – The value to return if x is above the range of xp.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The interpolated value.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="flow.html#morl4water.core.models.flow.Outflow.None" title="morl4water.core.models.flow.Outflow.None"><span class="pre">None</span></a></span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.reset" title="Link to this definition">¶</a></dt>
-<dd><p>Resets the system to its initial state.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This method does not return any value, but it modifies the internal state of the system.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.reset" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_level">
-<span class="sig-name descname"><span class="pre">storage_to_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_level" title="Link to this definition">¶</a></dt>
-<dd><p>Converts a storage volume in cubic meters to the corresponding water level in meters
-based on the storage-to-level relationship.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>s</strong> (<em>float</em>) – The storage volume (in cubic meters) to convert to a water level.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The corresponding water level (in meters) for the given storage volume.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">storage_to_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_level_pump">
 <span class="sig-name descname"><span class="pre">storage_to_level_pump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_level_pump" title="Link to this definition">¶</a></dt>
-<dd><p>Converts a storage volume in cubic meters to the corresponding water level in the pump
-based on the storage-to-level relationship for the pump.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>s</strong> (<em>float</em>) – The storage volume in the pump (in cubic meters) to convert to a water level.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The corresponding water level (in meters) for the given pump storage volume.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_minmax">
 <span class="sig-name descname"><span class="pre">storage_to_minmax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_minmax" title="Link to this definition">¶</a></dt>
-<dd><p>Converts a given storage volume to the corresponding minimum and maximum release rates.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>s</strong> (<em>float</em>) – The storage volume (in cubic meters) for which to determine the min and max release rates.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A tuple containing two arrays: the minimum and maximum release rates corresponding to the given storage volume.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple[np.ndarray, np.ndarray]</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_surface">
 <span class="sig-name descname"><span class="pre">storage_to_surface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_surface" title="Link to this definition">¶</a></dt>
-<dd><p>Converts a storage volume in cubic meters to the corresponding surface area
-based on the storage-to-surface relationship.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>s</strong> (<em>float</em>) – The storage volume (in cubic meters) to convert to a surface area.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The corresponding surface area for the given storage volume.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_surface_pump">
 <span class="sig-name descname"><span class="pre">storage_to_surface_pump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_surface_pump" title="Link to this definition">¶</a></dt>
-<dd><p>Converts a storage volume in cubic meters to the corresponding surface area
-in the pump, based on the storage-to-surface relationship for the pump.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>s</strong> (<em>float</em>) – The storage volume in the pump (in cubic meters) to convert to a surface area.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The corresponding surface area in the pump for the given storage volume.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -818,31 +516,21 @@ in the pump, based on the storage-to-surface relationship for the pump.</p>
 <li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.level_vector"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.level_vector</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.release_vector"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.release_vector</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.evap_rates"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.evap_rates</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.evap_rates_pump"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.evap_rates_pump</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.evap_rates_timestep_size"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.evap_rates_timestep_size</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_minmax_rel"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.storage_to_minmax_rel</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_level_rel"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.storage_to_level_rel</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_surface_rel"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.storage_to_surface_rel</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_surface_rel_pump"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.storage_to_surface_rel_pump</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_level_rel_pump"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.storage_to_level_rel_pump</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.pumping_rules"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.pumping_rules</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.inflows_pump"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.inflows_pump</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.objective_name"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.objective_name</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.stored_water_reservoir"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.stored_water_reservoir</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.stored_water_pump"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.stored_water_pump</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.observation_space"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.observation_space</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.action_space"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.action_space</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.spillage"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.spillage</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_info"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.determine_info()</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_observation"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.determine_observation()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_level"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.storage_to_level()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.level_to_storage"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.level_to_storage()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.level_to_surface"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.level_to_surface()</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_outflow"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.determine_outflow()</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.determine_info()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_observation"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.determine_observation()</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.determine_outflow()</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_reward"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.determine_reward()</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.determine_time_idx"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.determine_time_idx()</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.is_terminated"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.is_terminated()</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.level_to_minmax"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.level_to_minmax()</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.modified_interp"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.modified_interp()</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.reset"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.reset()</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_level"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.storage_to_level()</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.storage_to_level()</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_level_pump"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.storage_to_level_pump()</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_minmax"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.storage_to_minmax()</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.reservoir_with_pump.ReservoirWithPump.storage_to_surface"><code class="docutils literal notranslate"><span class="pre">ReservoirWithPump.storage_to_surface()</span></code></a></li>

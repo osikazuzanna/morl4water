@@ -201,13 +201,20 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/installation.html">Installation and Running</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/simulation_approach.html">Simulation Approach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/code_structure.html">Code Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/updating_facilities.html">Updating Facilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/updating_flows.html">Updating Flows</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quickstart/code_structure/index.html">Code Structure Overview</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Code Structure Overview</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/code_structure/updating_facilities.html">Updating Facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/code_structure/updating_flows.html">Updating Flows</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/creating_a_simulation.html">Creating a Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/implemented_simulations.html">Implemented Simulations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/running_a_simulation.html">Running a Simulation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quickstart/implemented_simulations/index.html">Water Simulations</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Water Simulations</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/implemented_simulations/nile.html">Nile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/implemented_simulations/susquehanna.html">Susquehanna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/implemented_simulations/omo.html">Omo</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">System Elements</span></p>
 <ul class="current">
@@ -266,13 +273,11 @@
 <dt class="sig sig-object py" id="morl4water.core.models.weir.Weir">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">morl4water.core.models.weir.</span></span><span class="sig-name descname"><span class="pre">Weir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_capacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integration_timestep_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">relativedelta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stored_water</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spillage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">observation_space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Box(0.0,</span> <span class="pre">1.0,</span> <span class="pre">(1,),</span> <span class="pre">float32)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action_space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Box(0.0,</span> <span class="pre">1.0,</span> <span class="pre">(1,),</span> <span class="pre">float32)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.weir.Weir" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ControlledFacility</span></code></p>
-<p>A class used to represent a Weir, a type of controlled reservoir in the simulation.</p>
-<p>This class models the behavior of a weir, including water storage, outflow release, and reward calculation.
-It incorporates control actions to manage water flow and evaluates performance based on objective functions.</p>
+<p>A class used to represent reservoirs of the problem</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.name">
 <span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.name" title="Link to this definition">¶</a></dt>
-<dd><p>Lowercase, non-spaced name of the weir.</p>
+<dd><p>Lowercase non-spaced name of the reservoir</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
@@ -283,10 +288,12 @@ It incorporates control actions to manage water flow and evaluates performance b
 <dl class="py attribute">
 <dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.storage_vector">
 <span class="sig-name descname"><span class="pre">storage_vector</span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.storage_vector" title="Link to this definition">¶</a></dt>
-<dd><p>Vector holding the volume of water in the weir throughout the simulation horizon (in cubic meters).</p>
+<dd><p>m3
+A vector that holds the volume of the water in the reservoir
+throughout the simulation horizon</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.array</p>
+<dd class="field-odd"><p>np.array (1xH)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -294,10 +301,12 @@ It incorporates control actions to manage water flow and evaluates performance b
 <dl class="py attribute">
 <dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.level_vector">
 <span class="sig-name descname"><span class="pre">level_vector</span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.level_vector" title="Link to this definition">¶</a></dt>
-<dd><p>Vector holding the elevation (height) of the water in the weir throughout the simulation horizon (in meters).</p>
+<dd><p>m
+A vector that holds the elevation of the water in the reservoir
+throughout the simulation horizon</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.array</p>
+<dd class="field-odd"><p>np.array (1xH)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -305,10 +314,12 @@ It incorporates control actions to manage water flow and evaluates performance b
 <dl class="py attribute">
 <dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.release_vector">
 <span class="sig-name descname"><span class="pre">release_vector</span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.release_vector" title="Link to this definition">¶</a></dt>
-<dd><p>Vector holding the actual average release per timestep from the weir (in cubic meters per second).</p>
+<dd><p>m3/s
+A vector that holds the actual average release per month
+from the reservoir throughout the simulation horizon</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.array</p>
+<dd class="field-odd"><p>np.array (1xH)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -316,215 +327,75 @@ It incorporates control actions to manage water flow and evaluates performance b
 <dl class="py attribute">
 <dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.evap_rates">
 <span class="sig-name descname"><span class="pre">evap_rates</span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.evap_rates" title="Link to this definition">¶</a></dt>
-<dd><p>Monthly evaporation rates for the weir (in centimeters).</p>
+<dd><p>cm
+Monthly evaporation rates of the reservoir</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.array</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.stored_water">
-<span class="sig-name descname"><span class="pre">stored_water</span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.stored_water" title="Link to this definition">¶</a></dt>
-<dd><p>The current volume of water stored in the weir (in cubic meters).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.spillage">
-<span class="sig-name descname"><span class="pre">spillage</span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.spillage" title="Link to this definition">¶</a></dt>
-<dd><p>The amount of water spilling from the weir.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.should_split_release">
-<span class="sig-name descname"><span class="pre">should_split_release</span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.should_split_release" title="Link to this definition">¶</a></dt>
-<dd><p>Flag indicating if the release should be split into different destinations.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.objective_function">
-<span class="sig-name descname"><span class="pre">objective_function</span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.objective_function" title="Link to this definition">¶</a></dt>
-<dd><p>Function to evaluate the reward based on the stored water.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>callable</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.objective_name">
-<span class="sig-name descname"><span class="pre">objective_name</span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.objective_name" title="Link to this definition">¶</a></dt>
-<dd><p>Name of the objective function.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.integration_timestep_size">
-<span class="sig-name descname"><span class="pre">integration_timestep_size</span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.integration_timestep_size" title="Link to this definition">¶</a></dt>
-<dd><p>Time resolution for the integration process (typically a month or smaller).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>relativedelta</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.max_capacity">
-<span class="sig-name descname"><span class="pre">max_capacity</span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.max_capacity" title="Link to this definition">¶</a></dt>
-<dd><p>Maximum water storage capacity of the weir (in cubic meters).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.max_action">
-<span class="sig-name descname"><span class="pre">max_action</span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.max_action" title="Link to this definition">¶</a></dt>
-<dd><p>Maximum allowable action values for controlling water release.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[float]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.observation_space">
-<span class="sig-name descname"><span class="pre">observation_space</span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.observation_space" title="Link to this definition">¶</a></dt>
-<dd><p>Action space for the simulation environment.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Box</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.action_space">
-<span class="sig-name descname"><span class="pre">action_space</span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.action_space" title="Link to this definition">¶</a></dt>
-<dd><p>Observation space for the simulation environment.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Box</p>
+<dd class="field-odd"><p>np.array (1x12)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.determine_info">
-<span class="sig-name descname"><span class="pre">determine_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.determine_info" title="Link to this definition">¶</a></dt>
-<dd><p>Returns key information about the weir.</p>
-<p>The dictionary contains the name of the weir and its average release rate.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A dictionary with information about the weir.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
+<span class="sig-name descname"><span class="pre">determine_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.weir.Weir.determine_info" title="Link to this definition">¶</a></dt>
+<dd><p>Return dictionary with parameters of the reservoir.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.storage_to_level">
+<span class="sig-name descname"><span class="pre">storage_to_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.weir.Weir.storage_to_level" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the level(height) based on volume.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.level_to_storage">
+<span class="sig-name descname"><span class="pre">level_to_storage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.weir.Weir.level_to_storage" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the volume based on level(height).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.level_to_surface">
+<span class="sig-name descname"><span class="pre">level_to_surface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.weir.Weir.level_to_surface" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the surface area based on level.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.determine_outflow">
+<span class="sig-name descname"><span class="pre">determine_outflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.weir.Weir.determine_outflow" title="Link to this definition">¶</a></dt>
+<dd><p>Returns average monthly water release.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">determine_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd><p>Returns information about the reservoir.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.determine_observation">
 <span class="sig-name descname"><span class="pre">determine_observation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.determine_observation" title="Link to this definition">¶</a></dt>
-<dd><p>Returns the current stored water level as part of the state space.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current stored water in the weir.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.determine_outflow">
-<span class="sig-name descname"><span class="pre">determine_outflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.determine_outflow" title="Link to this definition">¶</a></dt>
-<dd><p>Determines the average monthly water release based on the control actions.</p>
-<p>This method evaluates the inflow to the weir, scales the control actions, and calculates
-the outflow to different destinations.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>actions</strong> (<em>np.array</em>) – Array of control actions, where each value represents the percentage of water to release to a destination.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list containing the average monthly release from the weir.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[float]</p>
-</dd>
-</dl>
-</dd></dl>
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">determine_outflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.determine_reward">
 <span class="sig-name descname"><span class="pre">determine_reward</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.determine_reward" title="Link to this definition">¶</a></dt>
-<dd><p>Calculates the reward for the weir based on the stored water.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The calculated reward value based on the stored water.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.is_terminated">
 <span class="sig-name descname"><span class="pre">is_terminated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.is_terminated" title="Link to this definition">¶</a></dt>
-<dd><p>Determines whether the simulation should terminate.</p>
-<p>The simulation terminates if the weir’s stored water exceeds its capacity or is below zero.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True if the simulation should terminate, otherwise False.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.weir.Weir.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="flow.html#morl4water.core.models.flow.Outflow.None" title="morl4water.core.models.flow.Outflow.None"><span class="pre">None</span></a></span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.reset" title="Link to this definition">¶</a></dt>
-<dd><p>Resets the state of the weir to its initial condition.</p>
-<p>The weir’s stored water and other vectors are reset to their initial values at the start of a new simulation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>This method does not return a value, but modifies the internal state.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#morl4water.core.models.weir.Weir.reset" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -584,19 +455,14 @@ the outflow to different destinations.</p>
 <li><a class="reference internal" href="#morl4water.core.models.weir.Weir.level_vector"><code class="docutils literal notranslate"><span class="pre">Weir.level_vector</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.weir.Weir.release_vector"><code class="docutils literal notranslate"><span class="pre">Weir.release_vector</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.weir.Weir.evap_rates"><code class="docutils literal notranslate"><span class="pre">Weir.evap_rates</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.weir.Weir.stored_water"><code class="docutils literal notranslate"><span class="pre">Weir.stored_water</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.weir.Weir.spillage"><code class="docutils literal notranslate"><span class="pre">Weir.spillage</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.weir.Weir.should_split_release"><code class="docutils literal notranslate"><span class="pre">Weir.should_split_release</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.weir.Weir.objective_function"><code class="docutils literal notranslate"><span class="pre">Weir.objective_function</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.weir.Weir.objective_name"><code class="docutils literal notranslate"><span class="pre">Weir.objective_name</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.weir.Weir.integration_timestep_size"><code class="docutils literal notranslate"><span class="pre">Weir.integration_timestep_size</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.weir.Weir.max_capacity"><code class="docutils literal notranslate"><span class="pre">Weir.max_capacity</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.weir.Weir.max_action"><code class="docutils literal notranslate"><span class="pre">Weir.max_action</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.weir.Weir.observation_space"><code class="docutils literal notranslate"><span class="pre">Weir.observation_space</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.weir.Weir.action_space"><code class="docutils literal notranslate"><span class="pre">Weir.action_space</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.weir.Weir.determine_info"><code class="docutils literal notranslate"><span class="pre">Weir.determine_info()</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.weir.Weir.determine_observation"><code class="docutils literal notranslate"><span class="pre">Weir.determine_observation()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.weir.Weir.storage_to_level"><code class="docutils literal notranslate"><span class="pre">Weir.storage_to_level()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.weir.Weir.level_to_storage"><code class="docutils literal notranslate"><span class="pre">Weir.level_to_storage()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.weir.Weir.level_to_surface"><code class="docutils literal notranslate"><span class="pre">Weir.level_to_surface()</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.weir.Weir.determine_outflow"><code class="docutils literal notranslate"><span class="pre">Weir.determine_outflow()</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Weir.determine_info()</span></code></a></li>
+<li><a class="reference internal" href="#morl4water.core.models.weir.Weir.determine_observation"><code class="docutils literal notranslate"><span class="pre">Weir.determine_observation()</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Weir.determine_outflow()</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.weir.Weir.determine_reward"><code class="docutils literal notranslate"><span class="pre">Weir.determine_reward()</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.weir.Weir.is_terminated"><code class="docutils literal notranslate"><span class="pre">Weir.is_terminated()</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.weir.Weir.reset"><code class="docutils literal notranslate"><span class="pre">Weir.reset()</span></code></a></li>

@@ -11,7 +11,7 @@ lastpage:
    :width: 500
 ```
 
-```{include} ../README.md
+```{include} quickstart/README.md
 :start-after: <!-- start main body -->
 :end-before: <!-- end main body -->
 ```
@@ -20,13 +20,11 @@ lastpage:
 :hidden:
 :caption: Quickstart
 
+quickstart/installation
 quickstart/simulation_approach
-quickstart/code_structure
-quickstart/updating_facilities
-quickstart/updating_flows
+quickstart/code_structure/index
 quickstart/creating_a_simulation
-quickstart/implemented_simulations
-quickstart/running_a_simulation
+quickstart/implemented_simulations/index
 
 ```
 

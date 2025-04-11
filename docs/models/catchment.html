@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Facility Model" href="facility.html" /><link rel="prev" title="Running a Simulation" href="../quickstart/running_a_simulation.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Facility Model" href="facility.html" /><link rel="prev" title="Omo" href="../quickstart/implemented_simulations/omo.html" />
         <link rel="canonical" href="https://osikazuzanna.github.io/morl4water/models/catchment.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
@@ -201,13 +201,20 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/installation.html">Installation and Running</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/simulation_approach.html">Simulation Approach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/code_structure.html">Code Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/updating_facilities.html">Updating Facilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/updating_flows.html">Updating Flows</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quickstart/code_structure/index.html">Code Structure Overview</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Code Structure Overview</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/code_structure/updating_facilities.html">Updating Facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/code_structure/updating_flows.html">Updating Flows</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/creating_a_simulation.html">Creating a Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/implemented_simulations.html">Implemented Simulations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/running_a_simulation.html">Running a Simulation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quickstart/implemented_simulations/index.html">Water Simulations</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Water Simulations</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/implemented_simulations/nile.html">Nile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/implemented_simulations/susquehanna.html">Susquehanna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/implemented_simulations/omo.html">Omo</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">System Elements</span></p>
 <ul class="current">
@@ -266,39 +273,19 @@
 <dt class="sig sig-object py" id="morl4water.core.models.catchment.Catchment">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">morl4water.core.models.catchment.</span></span><span class="sig-name descname"><span class="pre">Catchment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_water_accumulated</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#morl4water.core.models.catchment.Catchment" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Facility</span></code></p>
-<p>A class representing a catchment facility that accumulates water over time and manages inflows and outflows.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.catchment.Catchment.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#morl4water.core.models.catchment.Catchment.name" title="Link to this definition">¶</a></dt>
-<dd><p>The identifier for the catchment facility.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="morl4water.core.models.catchment.Catchment.all_water_accumulated">
-<span class="sig-name descname"><span class="pre">all_water_accumulated</span></span><a class="headerlink" href="#morl4water.core.models.catchment.Catchment.all_water_accumulated" title="Link to this definition">¶</a></dt>
-<dd><p>List of water accumulation values over time.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[float]</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.catchment.Catchment.determine_consumption">
 <span class="sig-name descname"><span class="pre">determine_consumption</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.catchment.Catchment.determine_consumption" title="Link to this definition">¶</a></dt>
-<dd><p>Determines the water consumption for the catchment. In this implementation, consumption is always 0.</p>
+<dd><p>Abstract method to calculate the facility’s water consumption.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The water consumption for the current timestep, always 0 in this case.</p>
+<dd class="field-odd"><p>The calculated water consumption for the current timestep.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>float</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – If this method is not implemented in a subclass.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -306,13 +293,16 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.catchment.Catchment.determine_info">
 <span class="sig-name descname"><span class="pre">determine_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#morl4water.core.models.catchment.Catchment.determine_info" title="Link to this definition">¶</a></dt>
-<dd><p>Returns information about the catchment’s state, particularly the water consumption.</p>
+<dd><p>Method to gather information about the facility’s state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A dictionary containing the water consumption, which is always 0 in this case.</p>
+<dd class="field-odd"><p>A dictionary containing information about the facility.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – If this method is not implemented in a subclass.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -320,13 +310,16 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.catchment.Catchment.determine_reward">
 <span class="sig-name descname"><span class="pre">determine_reward</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.catchment.Catchment.determine_reward" title="Link to this definition">¶</a></dt>
-<dd><p>Determines the reward for the catchment. In this implementation, the reward is always 0.</p>
+<dd><p>Abstract method to compute the reward based on the facility’s performance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The reward for the current timestep, always 0 in this case.</p>
+<dd class="field-odd"><p>The computed reward for the current timestep.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>float</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – If this method is not implemented in a subclass.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -334,33 +327,30 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.catchment.Catchment.get_inflow">
 <span class="sig-name descname"><span class="pre">get_inflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#morl4water.core.models.catchment.Catchment.get_inflow" title="Link to this definition">¶</a></dt>
-<dd><p>Retrieves the inflow value for a given timestep.</p>
+<dd><p>Retrieves the inflow value for a specific timestep.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>timestep</strong> (<em>int</em>) – The timestep index for which to retrieve the inflow value.</p>
+<dd class="field-odd"><p><strong>timestep</strong> (<em>int</em>) – The timestep index for which to retrieve the inflow.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The inflow value for the specified timestep, based on the water accumulation list.</p>
+<dd class="field-even"><p>The inflow value for the specified timestep.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
 </dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>IndexError</strong> – If the timestep is out of bounds.</p>
+</dd>
 </dl>
-<p class="rubric">Notes</p>
-<p>If the timestep exceeds the length of <cite>all_water_accumulated</cite>, it wraps around using modulus.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="morl4water.core.models.catchment.Catchment.is_truncated">
 <span class="sig-name descname"><span class="pre">is_truncated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#morl4water.core.models.catchment.Catchment.is_truncated" title="Link to this definition">¶</a></dt>
-<dd><p>Determines if the simulation should be truncated based on the timestep.</p>
+<dd><p>Checks if the facility simulation has been truncated.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><dl class="simple">
-<dt>True if the current timestep is greater than or equal to the length of <cite>all_water_accumulated</cite>,</dt><dd><p>indicating the simulation should be truncated, otherwise False.</p>
-</dd>
-</dl>
-</p>
+<dd class="field-odd"><p>Always returns False for the base Facility class; override in subclasses as needed.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
@@ -386,14 +376,14 @@
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../quickstart/running_a_simulation.html">
+          <a class="prev-page" href="../quickstart/implemented_simulations/omo.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Running a Simulation</div>
+                <div class="title">Omo</div>
                 
               </div>
             </a>
@@ -429,8 +419,6 @@
             <ul>
 <li><a class="reference internal" href="#">Catchment Model</a><ul>
 <li><a class="reference internal" href="#morl4water.core.models.catchment.Catchment"><code class="docutils literal notranslate"><span class="pre">Catchment</span></code></a><ul>
-<li><a class="reference internal" href="#morl4water.core.models.catchment.Catchment.name"><code class="docutils literal notranslate"><span class="pre">Catchment.name</span></code></a></li>
-<li><a class="reference internal" href="#morl4water.core.models.catchment.Catchment.all_water_accumulated"><code class="docutils literal notranslate"><span class="pre">Catchment.all_water_accumulated</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.catchment.Catchment.determine_consumption"><code class="docutils literal notranslate"><span class="pre">Catchment.determine_consumption()</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.catchment.Catchment.determine_info"><code class="docutils literal notranslate"><span class="pre">Catchment.determine_info()</span></code></a></li>
 <li><a class="reference internal" href="#morl4water.core.models.catchment.Catchment.determine_reward"><code class="docutils literal notranslate"><span class="pre">Catchment.determine_reward()</span></code></a></li>

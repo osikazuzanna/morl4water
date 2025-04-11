@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Code Structure" href="code_structure.html" /><link rel="prev" title="Morl4water Intro" href="../index.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Code Structure Overview" href="code_structure/index.html" /><link rel="prev" title="Installation and Running" href="installation.html" />
         <link rel="canonical" href="https://osikazuzanna.github.io/morl4water/quickstart/simulation_approach.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
@@ -201,13 +201,20 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation and Running</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Simulation Approach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code_structure.html">Code Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="updating_facilities.html">Updating Facilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="updating_flows.html">Updating Flows</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="code_structure/index.html">Code Structure Overview</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Code Structure Overview</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="code_structure/updating_facilities.html">Updating Facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code_structure/updating_flows.html">Updating Flows</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="creating_a_simulation.html">Creating a Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="implemented_simulations.html">Implemented Simulations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="running_a_simulation.html">Running a Simulation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="implemented_simulations/index.html">Water Simulations</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Water Simulations</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="implemented_simulations/nile.html">Nile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implemented_simulations/susquehanna.html">Susquehanna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implemented_simulations/omo.html">Omo</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">System Elements</span></p>
 <ul>
@@ -262,11 +269,12 @@
         <article role="main" id="furo-main-content">
           <section id="simulation-approach">
 <h1>Simulation Approach<a class="headerlink" href="#simulation-approach" title="Link to this heading">¶</a></h1>
+<!-- start simulation approach -->
 <p>The morl4water framework is built on the assumption that any river system to be simulated can be represented by a structured combination of nodes and flows. Each major component of the system—such as reservoirs, power plants, irrigation districts, etc.—is represented as a “node” with unique attributes and behaviors tailored to that element. These nodes are then interconnected by “flows,” which direct water movement between nodes, enabling the construction of complex river architectures.</p>
 <p>To showcase an example have a look at the picture below:
-<img alt="Examplary river diagram with nodes and flows" src="../_static/_images/Nodes_and_flows.drawio.png" /></p>
+<img src="../_static/_images/nodes_and_flows.png" alt="Alt text" style="width: 50%;" /></p>
 <p>It’s important to note that multiple flows can converge at a single node, and multiple flows can also diverge from it. Additionally, there are different types of nodes and flows, each serving unique functions within the river system. The diagram below illustrates how all elements within a river system are classified.</p>
-<p><img alt="Diagram of river elements" src="../_static/_images/Elements_diagram.drawio.png" /></p>
+<img src="../_static/_images/wms.png" alt="Alt text" style="width: 75%;" />
 <p>All yellow boxes represent classes implemented within the morl4water framework. The <code class="docutils literal notranslate"><span class="pre">Facility</span></code> and <code class="docutils literal notranslate"><span class="pre">ControlledFacility</span></code> classes are always used as superclasses for other facility-related classes. Similarly, the <code class="docutils literal notranslate"><span class="pre">Flow</span></code> class serves as a superclass for both <code class="docutils literal notranslate"><span class="pre">Inflow</span></code> and <code class="docutils literal notranslate"><span class="pre">Outflow</span></code>, although instances of the <code class="docutils literal notranslate"><span class="pre">Flow</span></code> class itself are also frequently used. To clarify the purpose of each element:</p>
 <p>Facility (classes over which RL agent has no control over):</p>
 <ol class="arabic simple">
@@ -286,8 +294,10 @@
 <li><p><strong>Flow</strong> - Flow connecting two nodes (two river elements) allowing water to go through the system.</p></li>
 <li><p><strong>Outflow</strong> - Flow which simply has no destination.</p></li>
 </ol>
+<!-- end simulation approach -->
 <section id="time-in-the-simulation">
 <h2>Time in the Simulation<a class="headerlink" href="#time-in-the-simulation" title="Link to this heading">¶</a></h2>
+<!-- start simulation approach - Time-->
 <p>A clear understanding of how time is handled in the simulation is essential for grasping its mechanics. For each simulation, the user needs to set four key time-related parameters:</p>
 <ol class="arabic simple">
 <li><p><strong>start_date</strong> - The date when the simulation should start.</p></li>
@@ -297,7 +307,7 @@
 </ol>
 <p>The simulation is structured so that when an RL Agent takes an action, this action is applied consistently over the duration specified by <code class="docutils literal notranslate"><span class="pre">timestep_size</span></code>. During this period, each river element, such as facilities and flows, is updated at intervals defined by <code class="docutils literal notranslate"><span class="pre">integration_timestep_size</span></code> (typically spanning several hours) until the end of the current <code class="docutils literal notranslate"><span class="pre">timestep_size</span></code>. Afterward, the RL agent selects a new action based on the updated states of these elements.</p>
 <p>Each river element is updated individually and sequentially within the <code class="docutils literal notranslate"><span class="pre">timestep_size</span></code>, ensuring that all elements are processed in a specific order. This approach means that, as the simulation enters a new <code class="docutils literal notranslate"><span class="pre">timestep_size</span></code>, an exemplary facility (node) is updated step-by-step at <code class="docutils literal notranslate"><span class="pre">integration_timestep_size</span></code> intervals until the end of this <code class="docutils literal notranslate"><span class="pre">timestep_size</span></code>. Only then a flow leaving from that facility can be subsequently updated.</p>
-</section>
+<!-- end simulation approach - Time--></section>
 </section>
 
         </article>
@@ -305,23 +315,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="code_structure.html">
+          <a class="next-page" href="code_structure/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Code Structure</div>
+                <div class="title">Code Structure Overview</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../index.html">
+          <a class="prev-page" href="installation.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Home</div>
+                <div class="title">Installation and Running</div>
                 
               </div>
             </a>

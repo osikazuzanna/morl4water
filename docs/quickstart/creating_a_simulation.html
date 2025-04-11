@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Implemented Simulations" href="implemented_simulations.html" /><link rel="prev" title="Updating Flows" href="updating_flows.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Water Simulations" href="implemented_simulations/index.html" /><link rel="prev" title="Updating Flows" href="code_structure/updating_flows.html" />
         <link rel="canonical" href="https://osikazuzanna.github.io/morl4water/quickstart/creating_a_simulation.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
@@ -201,13 +201,20 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation and Running</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simulation_approach.html">Simulation Approach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code_structure.html">Code Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="updating_facilities.html">Updating Facilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="updating_flows.html">Updating Flows</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="code_structure/index.html">Code Structure Overview</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Code Structure Overview</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="code_structure/updating_facilities.html">Updating Facilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code_structure/updating_flows.html">Updating Flows</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Creating a Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="implemented_simulations.html">Implemented Simulations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="running_a_simulation.html">Running a Simulation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="implemented_simulations/index.html">Water Simulations</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Water Simulations</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="implemented_simulations/nile.html">Nile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implemented_simulations/susquehanna.html">Susquehanna</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implemented_simulations/omo.html">Omo</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">System Elements</span></p>
 <ul>
@@ -262,18 +269,19 @@
         <article role="main" id="furo-main-content">
           <section id="creating-a-simulation">
 <h1>Creating a Simulation<a class="headerlink" href="#creating-a-simulation" title="Link to this heading">¶</a></h1>
+<!-- start creating a sim - needed files -->
 <p>To create a new river simulation from scratch within morl4watwer package, it is necessary to create two new scripts and add the required data files related to reservoirs and other potential facilities. The needed files are as follows:</p>
 <ol class="arabic simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">[project</span> <span class="pre">name]_example.py</span></code></strong><br />
-This is the main file where the environement is initialised and the <code class="docutils literal notranslate"><span class="pre">.step()</span></code> method for the environment is called and updated in a loop. It should be located as a seperate script in <code class="docutils literal notranslate"><span class="pre">morl4water</span></code> package.</p></li>
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">[project</span> <span class="pre">name]_simulation.py</span></code></strong><br />
 This is where the river components (facilites like reservoirs, flows etc.) are defined as objects of classes and later installed in a list to form the whole river system for the simulation. The order ofcomponents is important and should follow the river flow. This file should be located in <code class="docutils literal notranslate"><span class="pre">morl4water/examples</span></code> directory.</p></li>
 <li><p><strong>Data files (.txt)</strong><br />
 The specific data files needed for creating a simulation depend on the number and type of facilities used in the river simulation. Please refer to explanations and the code of picked facilites to learn what data files are needed in your case. The data files should be located in <code class="docutils literal notranslate"><span class="pre">morl4water/examples/data/[project</span> <span class="pre">name]</span></code> directory.</p></li>
 </ol>
 <p>The precise explanations of the aforementioned scripts should be located in Structure section of this documentation. To illustrate how the list of all needed files could look like, the list of files for Nile river simulation is presented below.</p>
+<!-- end creating a sim - needed files -->
 <section id="nile-case">
 <h2>Nile Case<a class="headerlink" href="#nile-case" title="Link to this heading">¶</a></h2>
+<!-- start creating sim - Nile case -->
 <p>Below one can see how the necessary scripts and data files were structured for the Nile river case. Only parts of the whole morl4water package containing the necessary scripts and files (green names) are presented.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">morl4water/</span></code>: Root directory of the morl4water package.</p>
@@ -313,6 +321,7 @@ The specific data files needed for creating a simulation depend on the number an
 </ul>
 </li>
 </ul>
+<!-- end creating sim - Nile case -->
 </section>
 </section>
 
@@ -321,16 +330,16 @@ The specific data files needed for creating a simulation depend on the number an
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="implemented_simulations.html">
+          <a class="next-page" href="implemented_simulations/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Implemented Simulations</div>
+                <div class="title">Water Simulations</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="updating_flows.html">
+          <a class="prev-page" href="code_structure/updating_flows.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
