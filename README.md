@@ -1,4 +1,4 @@
-# RL4Water
+# MORL4Water
 <!-- start main body -->
 <!-- Repository with a mondular gym environment, which lets you build a multi-objective water simulations to train you MORL agents on. -->
 Welcome to morl4water, a flexible gym environment designed for simulating water management in river systems. With morl4water, 
