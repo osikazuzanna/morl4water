@@ -57,7 +57,9 @@ run_omo()
 <!-- end installation-->
 
 
+## Documentation
 
+For detailed documentation, please visit [https://osikazuzanna.github.io/morl4water/](https://osikazuzanna.github.io/morl4water/)
 
 
 
