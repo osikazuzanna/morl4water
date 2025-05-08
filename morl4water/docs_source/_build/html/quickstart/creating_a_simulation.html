@@ -274,9 +274,133 @@
 <ol class="arabic simple">
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">[project</span> <span class="pre">name]_simulation.py</span></code></strong><br />
 This is where the river components (facilites like reservoirs, flows etc.) are defined as objects of classes and later installed in a list to form the whole river system for the simulation. The order ofcomponents is important and should follow the river flow. This file should be located in <code class="docutils literal notranslate"><span class="pre">morl4water/examples</span></code> directory.</p></li>
-<li><p><strong>Data files (.txt)</strong><br />
+<li><p>**Data requirements **<br />
 The specific data files needed for creating a simulation depend on the number and type of facilities used in the river simulation. Please refer to explanations and the code of picked facilites to learn what data files are needed in your case. The data files should be located in <code class="docutils literal notranslate"><span class="pre">morl4water/examples/data/[project</span> <span class="pre">name]</span></code> directory.</p></li>
 </ol>
+<p>All the possible input data needed to create a simulation can be found in the table below. Please note that for data type <em>scalar</em> you just need to provide a scalar value in the class itself, while for data type <em>time series</em> or <em>tabular data</em> you should provide txt files.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Data</strong></p></th>
+<th class="head"><p><strong>Class</strong></p></th>
+<th class="head"><p><strong>Type</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>max capacity</p></td>
+<td><p>Reservoir</p></td>
+<td><p>Scalar</p></td>
+<td><p>Maximum capacity of the reservoir (in m³)</p></td>
+</tr>
+<tr class="row-odd"><td><p>max release</p></td>
+<td><p>Reservoir</p></td>
+<td><p>Scalar</p></td>
+<td><p>Maximum release from the reservoir (in m³/s)</p></td>
+</tr>
+<tr class="row-even"><td><p>initial storage</p></td>
+<td><p>Reservoir</p></td>
+<td><p>Scalar</p></td>
+<td><p>Initial storage of the reservoir (in m³)</p></td>
+</tr>
+<tr class="row-odd"><td><p>evaporation rates</p></td>
+<td><p>Reservoir</p></td>
+<td><p>Time Series</p></td>
+<td><p>Evaporation rates of the reservoir’s storage per simulation step (percentage of the surface lost as water)</p></td>
+</tr>
+<tr class="row-even"><td><p>storage to min max release</p></td>
+<td><p>Reservoir</p></td>
+<td><p>Tabular Data</p></td>
+<td><p>Relation of stored water in m³ to the minimum and maximum release from the reservoir</p></td>
+</tr>
+<tr class="row-odd"><td><p>storage to level relationship</p></td>
+<td><p>Reservoir</p></td>
+<td><p>Tabular Data</p></td>
+<td><p>Relation of stored water in m³ to water height level in meters, used for calculating power production</p></td>
+</tr>
+<tr class="row-even"><td><p>storage to surface relationship</p></td>
+<td><p>Reservoir</p></td>
+<td><p>Tabular Data</p></td>
+<td><p>Relation of stored water in m³ to surface area in m², used for calculating evaporation</p></td>
+</tr>
+<tr class="row-odd"><td><p>initial storage of the pump</p></td>
+<td><p>Reservoir</p></td>
+<td><p>Scalar</p></td>
+<td><p>Initial storage of the pump (in m³)</p></td>
+</tr>
+<tr class="row-even"><td><p>evaporation rates of the pump</p></td>
+<td><p>Reservoir</p></td>
+<td><p>Time Series</p></td>
+<td><p>Evaporation rates of the pump’s storage per simulation step (percentage of surface lost as water)</p></td>
+</tr>
+<tr class="row-odd"><td><p>storage to level relationship of pump</p></td>
+<td><p>Reservoir</p></td>
+<td><p>Tabular Data</p></td>
+<td><p>Relation of stored water in the pump to water height level in meters</p></td>
+</tr>
+<tr class="row-even"><td><p>storage to surface relationship of pump</p></td>
+<td><p>Reservoir</p></td>
+<td><p>Tabular Data</p></td>
+<td><p>Relation of stored water in the pump to surface area in m², used for calculating evaporation</p></td>
+</tr>
+<tr class="row-odd"><td><p>pumping rules</p></td>
+<td><p>Reservoir</p></td>
+<td><p>Function</p></td>
+<td><p>Function with release and pumping rules for the pump, considering time of day, storage, etc.</p></td>
+</tr>
+<tr class="row-even"><td><p>inflows to the pump</p></td>
+<td><p>Reservoir</p></td>
+<td><p>Time Series</p></td>
+<td><p>Inflow of water in m³/s flowing into the pump</p></td>
+</tr>
+<tr class="row-odd"><td><p>efficiency</p></td>
+<td><p>PowerPlant</p></td>
+<td><p>Scalar</p></td>
+<td><p>Efficiency coefficient of the power plant</p></td>
+</tr>
+<tr class="row-even"><td><p>min turbine flow</p></td>
+<td><p>PowerPlant</p></td>
+<td><p>Scalar</p></td>
+<td><p>Minimum flow through turbines for hydro energy production</p></td>
+</tr>
+<tr class="row-odd"><td><p>max turbine flow</p></td>
+<td><p>PowerPlant</p></td>
+<td><p>Scalar</p></td>
+<td><p>Maximum flow through turbines for hydro energy production</p></td>
+</tr>
+<tr class="row-even"><td><p>head start level</p></td>
+<td><p>PowerPlant</p></td>
+<td><p>Scalar</p></td>
+<td><p>Water level required for power generation</p></td>
+</tr>
+<tr class="row-odd"><td><p>max capacity</p></td>
+<td><p>PowerPlant</p></td>
+<td><p>Scalar</p></td>
+<td><p>Maximum power capacity of the power plant</p></td>
+</tr>
+<tr class="row-even"><td><p>n_turbines</p></td>
+<td><p>PowerPlant</p></td>
+<td><p>Scalar</p></td>
+<td><p>Number of turbines</p></td>
+</tr>
+<tr class="row-odd"><td><p>turbines</p></td>
+<td><p>PowerPlant</p></td>
+<td><p>Tabular Data</p></td>
+<td><p>Maximum and minimum flow through each turbine (if n_turbines &gt; 1)</p></td>
+</tr>
+<tr class="row-even"><td><p>water demand</p></td>
+<td><p>IrrigationDistrict</p></td>
+<td><p>Time Series</p></td>
+<td><p>Water demand per simulation step</p></td>
+</tr>
+<tr class="row-odd"><td><p>inflow</p></td>
+<td><p>Inflows, Catchment</p></td>
+<td><p>Time Series</p></td>
+<td><p>Inflow of water into the river per simulation step</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>The precise explanations of the aforementioned scripts should be located in Structure section of this documentation. To illustrate how the list of all needed files could look like, the list of files for Nile river simulation is presented below.</p>
 <!-- end creating a sim - needed files -->
 <section id="nile-case">

@@ -324,6 +324,109 @@
 <p>Taken from: <em>Muniak, K. (2024). RL4Water: Reinforcement Learning Environment for Water Management (Bachelor’s thesis). Delft University of Technology, Faculty of EEMCS.</em></p>
 <!-- end implemented simulations -Susquehanna -->
 </section>
+<section id="data-data-sources">
+<h2>Data &amp; Data Sources<a class="headerlink" href="#data-data-sources" title="Link to this heading">¶</a></h2>
+<!-- start Data -->
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Data</strong></p></th>
+<th class="head"><p><strong>Facility</strong></p></th>
+<th class="head"><p><strong>Value</strong></p></th>
+<th class="head"><p><strong>Source</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>max release</p></td>
+<td><p>Conowingo (with 4 outflows)</p></td>
+<td><p>41.302169, 464.16667, 54.748458, 85412</p></td>
+<td><p>Salazar et al. (2024)</p></td>
+</tr>
+<tr class="row-odd"><td><p>initial storage</p></td>
+<td><p>Conowingo reservoir with Muddy Run Pump</p></td>
+<td><p>2.6BCM</p></td>
+<td><p>Salazar et al. (2024)</p></td>
+</tr>
+<tr class="row-even"><td><p>max capacity</p></td>
+<td><p>Conowingo reservoir with Muddy Run Pump</p></td>
+<td><p>7BCM</p></td>
+<td><p>Salazar et al. (2024)</p></td>
+</tr>
+<tr class="row-odd"><td><p>evaporation rate</p></td>
+<td><p>Conowingo reservoir with Muddy Run Pump</p></td>
+<td><p>Daily evaporation rates for Conowingo (see <code class="docutils literal notranslate"><span class="pre">examples/data/susquehanna/reservoir</span></code>)</p></td>
+<td><p>Salazar et al. (2024)</p></td>
+</tr>
+<tr class="row-even"><td><p>storage to min max release</p></td>
+<td><p>Conowingo reservoir with Muddy Run Pump</p></td>
+<td><p>Tabular data (see <code class="docutils literal notranslate"><span class="pre">examples/data/susquehanna_river/reservoirs</span></code>)</p></td>
+<td><p>Salazar et al. (2024)</p></td>
+</tr>
+<tr class="row-odd"><td><p>storage to level to surface relationship</p></td>
+<td><p>Conowingo reservoir with Muddy Run Pump</p></td>
+<td><p>Tabular data for Conowingo</p></td>
+<td><p>Salazar et al. (2024)</p></td>
+</tr>
+<tr class="row-even"><td><p>initial storage of the pump</p></td>
+<td><p>Conowingo reservoir with Muddy Run Pump</p></td>
+<td><p>1.9BCM</p></td>
+<td><p>Salazar et al. (2024)</p></td>
+</tr>
+<tr class="row-odd"><td><p>evaporation rates of the pump</p></td>
+<td><p>Conowingo reservoir with Muddy Run Pump</p></td>
+<td><p>Daily evaporation rates for Muddy Run (see <code class="docutils literal notranslate"><span class="pre">examples/data/susquehanna/reservoir</span></code>)</p></td>
+<td><p>Salazar et al. (2024)</p></td>
+</tr>
+<tr class="row-even"><td><p>storage to level to surface relationship pump</p></td>
+<td><p>Conowingo reservoir with Muddy Run Pump</p></td>
+<td><p>Tabular data for Muddy Run Pump</p></td>
+<td><p>Salazar et al. (2024)</p></td>
+</tr>
+<tr class="row-odd"><td><p>pumping rules</p></td>
+<td><p>Conowingo reservoir with Muddy Run Pump</p></td>
+<td><p>Function <code class="docutils literal notranslate"><span class="pre">muddyrun_pumpturb</span></code> in main Susquehanna script</p></td>
+<td><p>Salazar et al. (2024)</p></td>
+</tr>
+<tr class="row-even"><td><p>inflows to the pump</p></td>
+<td><p>Conowingo reservoir with Muddy Run Pump</p></td>
+<td><p>Daily inflow data to Muddy Run</p></td>
+<td><p>Salazar et al. (2024)</p></td>
+</tr>
+<tr class="row-odd"><td><p>efficiency</p></td>
+<td><p>Conowingo Power Plant</p></td>
+<td><p>79%</p></td>
+<td><p>Salazar et al. (2024)</p></td>
+</tr>
+<tr class="row-even"><td><p>head start level</p></td>
+<td><p>Conowingo Power Plant</p></td>
+<td><p>0</p></td>
+<td><p>Salazar et al. (2024)</p></td>
+</tr>
+<tr class="row-odd"><td><p>n_turbines</p></td>
+<td><p>Conowingo Power Plant</p></td>
+<td><p>13</p></td>
+<td><p>Salazar et al. (2024)</p></td>
+</tr>
+<tr class="row-even"><td><p>water demand</p></td>
+<td><p>Atomice, Baltimore and Chester Irrigation Districts</p></td>
+<td><p>Daily time series data with water demand</p></td>
+<td><p>Salazar et al. (2024)</p></td>
+</tr>
+<tr class="row-odd"><td><p>turbines</p></td>
+<td><p>Conowingo Power Plant</p></td>
+<td><p>Tabular data with min/max turbine flow per turbine</p></td>
+<td><p>Salazar et al. (2024)</p></td>
+</tr>
+<tr class="row-even"><td><p>inflow</p></td>
+<td><p>Later and Main Conowingo Inflow</p></td>
+<td><p>Daily time series data of inflows</p></td>
+<td><p>Salazar et al. (2024)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- end Data -->
+</section>
 </section>
 
         </article>
@@ -383,6 +486,7 @@
             <ul>
 <li><a class="reference internal" href="#">Susquehanna</a><ul>
 <li><a class="reference internal" href="#running">Running</a></li>
+<li><a class="reference internal" href="#data-data-sources">Data &amp; Data Sources</a></li>
 </ul>
 </li>
 </ul>

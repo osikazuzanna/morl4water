@@ -23,9 +23,10 @@ pip install morl4water
 An example on how to run a simulation:
 
 ```python
-water_management_system = mo_gymnasium.make('omo-v0')
+import  morl4water.examples
+water_management_system = mo_gymnasium.make('nile-v0')
 
-def run_omo():
+def run_nile():
     #reset
     obs, info = water_management_system.reset()
     print(f'Initial Obs: {obs}')

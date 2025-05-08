@@ -60,3 +60,28 @@ run()
 Taken from: _Muniak, K. (2024). RL4Water: Reinforcement Learning Environment for Water Management (Bachelor’s thesis). Delft University of Technology, Faculty of EEMCS._
 <!-- end implemented simulations -Susquehanna -->
 
+#### Data & Data Sources
+<!-- start Data -->
+
+| **Data**                                      | **Facility**                                     | **Value**                                                                                   | **Source**                       |
+|----------------------------------------------|--------------------------------------------------|---------------------------------------------------------------------------------------------|----------------------------------|
+| max release                                  | Conowingo (with 4 outflows)                      | 41.302169, 464.16667, 54.748458, 85412                                                      | Salazar et al. (2024)           |
+| initial storage                              | Conowingo reservoir with Muddy Run Pump          | 2.6BCM                                                                                      | Salazar et al. (2024)           |
+| max capacity                                 | Conowingo reservoir with Muddy Run Pump          | 7BCM                                                                                        | Salazar et al. (2024)           |
+| evaporation rate                             | Conowingo reservoir with Muddy Run Pump          | Daily evaporation rates for Conowingo (see `examples/data/susquehanna/reservoir`)           | Salazar et al. (2024)           |
+| storage to min max release                   | Conowingo reservoir with Muddy Run Pump          | Tabular data (see `examples/data/susquehanna_river/reservoirs`)                            | Salazar et al. (2024)           |
+| storage to level to surface relationship     | Conowingo reservoir with Muddy Run Pump          | Tabular data for Conowingo                                                                 | Salazar et al. (2024)           |
+| initial storage of the pump                  | Conowingo reservoir with Muddy Run Pump          | 1.9BCM                                                                                      | Salazar et al. (2024)           |
+| evaporation rates of the pump                | Conowingo reservoir with Muddy Run Pump          | Daily evaporation rates for Muddy Run (see `examples/data/susquehanna/reservoir`)           | Salazar et al. (2024)           |
+| storage to level to surface relationship pump| Conowingo reservoir with Muddy Run Pump          | Tabular data for Muddy Run Pump                                                             | Salazar et al. (2024)           |
+| pumping rules                                | Conowingo reservoir with Muddy Run Pump          | Function `muddyrun_pumpturb` in main Susquehanna script                                     | Salazar et al. (2024)           |
+| inflows to the pump                          | Conowingo reservoir with Muddy Run Pump          | Daily inflow data to Muddy Run                                                              | Salazar et al. (2024)           |
+| efficiency                                   | Conowingo Power Plant                            | 79%                                                                                        | Salazar et al. (2024)           |
+| head start level                             | Conowingo Power Plant                            | 0                                                                                           | Salazar et al. (2024)           |
+| n_turbines                                   | Conowingo Power Plant                            | 13                                                                                          | Salazar et al. (2024)           |
+| water demand                                 | Atomice, Baltimore and Chester Irrigation Districts | Daily time series data with water demand                                                  | Salazar et al. (2024)           |
+| turbines                                     | Conowingo Power Plant                            | Tabular data with min/max turbine flow per turbine                                          | Salazar et al. (2024)           |
+| inflow                                       | Later and Main Conowingo Inflow                  | Daily time series data of inflows                                                           | Salazar et al. (2024)           |
+
+
+<!-- end Data -->

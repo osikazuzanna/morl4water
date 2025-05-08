@@ -1,5 +1,8 @@
 ### Omo
 <!-- start implemented simulations -Omo -->
+
+*This environment is still under construction*
+
 The Lower Omo-Gibe River Basin in Ethiopia highlights the complex challenges of balancing hydropower, irrigation, and environmental flow needs in a developing region. This model includes key infrastructure like the Gibe III and Koysha dams, the Kuraz sugar plantation irrigation schemes and Omorate town.
 
 Originally, the simulation starts at **(2029, 1, 1)** and the decisions are taken on a monthly basis over a 12-year period, resulting in **144 time steps** for each episode (the whole simulation). It also has 3 following objectives:
