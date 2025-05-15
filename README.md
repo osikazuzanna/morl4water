@@ -5,7 +5,7 @@ Welcome to morl4water, a flexible gym environment designed for simulating water 
 you can build detailed water simulations and train or test your multi-objective reinforcement learning (MORL) agents in these settings. 
 This guide will walk you through the key features of the tool. Please refer to the relevant sections based on your needs. 
 
-Currently, we have three water systems implemented in a form of gym environments: Nile River Basin, Susquehanna River Basin and Omo River Basin.
+Currently, we have three water systems implemented in a form of gym environments: Nile River Basin, Susquehanna River Basin and Omo River Basin (under development).
 
 Our toolkit is designed in a modular way, allowing users to build their own systems. For the overview of the systems, please go to System Elements.
 
@@ -26,9 +26,9 @@ An example on how to run a simulation:
 import mo_gymansium
 import morl4water.examples
 
-water_management_system = mo_gymnasium.make('omo-v0')
+water_management_system = mo_gymnasium.make('nile-v0')
 
-def run_omo():
+def run_nile():
     #reset
     obs, info = water_management_system.reset()
     print(f'Initial Obs: {obs}')
@@ -52,7 +52,7 @@ def run_omo():
         else:
             break
     return final_observation
-run_omo()
+run_nile()
 ```
 <!-- end installation-->
 
