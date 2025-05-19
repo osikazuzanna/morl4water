@@ -10,6 +10,80 @@ Currently, we have three water systems implemented in a form of gym environments
 Our toolkit is designed in a modular way, allowing users to build their own systems. For the overview of the systems, please go to System Elements.
 
 
+
+
+## Code Structure
+The codebase is organized into two main components:
+
+### `core/`
+This directory contains the core simulation logic and modular building blocks for modeling water systems:
+
+- **`envs/`**:  
+  Contains the main environment implementation:
+  - `water_management_system.py` — Defines how water systems are simulated and interacted with by reinforcement learning agents.
+
+- **`models/`**:  
+  Encapsulates domain-specific components such as:
+  - **Hydrological and infrastructure models**:  
+    - `catchment.py`, `flow.py`, `reservoir.py`, `weir.py`
+  - **Operational units**:  
+    - `facility.py`, `irrigation_district.py`, `power_plant.py`, `reservoir_with_pump.py`
+  - **Objective definitions**:  
+    - `objective.py` — Captures performance criteria (e.g., water supply reliability, hydropower generation, ecological flow maintenance)
+
+Each model varies in its structural configuration, observation/action spaces, and optimization objectives, supporting the simulation of diverse river basin settings.
+
+### `examples/`
+This directory includes ready-to-run simulation scripts and datasets for real-world river basins:
+
+- **Data**:  
+  Subdirectories with input data for:
+  - `nile_river/`
+    - `catchments/`, `irrigation/`, `reservoirs/`
+  - `omo_river/` (under construction)
+    - `catchments/`, `irrigation/`, `reservoirs/`
+  - `susquehanna_river/`
+    - `demands/`, `inflows/`, `reservoirs/`
+
+- **Simulation scripts**:
+  - `nile_river_simulation.py`
+  - `omo_river_simulation.py` (under construction)
+  - `susquehanna_river_simulation.py`
+
+These examples demonstrate how to instantiate and run MORL simulations for each river system, showcasing the flexibility of the framework across geographic and hydrological contexts.
+
+### Code Skeleton
+
+```text
+morl4water
+├── core
+│   ├── envs
+│   │   └── water_management_system.py
+│   ├── models
+│   │   ├── catchment.py
+│   │   ├── facility.py
+│   │   ├── flow.py
+│   │   ├── irrigation_district.py
+│   │   ├── objective.py
+│   │   ├── power_plant.py
+│   │   ├── reservoir.py
+│   │   ├── reservoir_with_pump.py
+│   │   └── weir.py
+├── examples
+│   ├── data
+│   │   ├── nile_river/
+│   │   ├── omo_river/
+│   │   └── susquehanna_river/
+│   ├── nile_river_simulation.py
+│   ├── omo_river_simulation.py
+│   └── susquehanna_river_simulation.py
+```
+
+### Documentation
+
+For detailed documentation, please visit [https://osikazuzanna.github.io/morl4water/](https://osikazuzanna.github.io/morl4water/)
+
+
 ## Installation and running
 <!-- start installation-->
 #### Installation
@@ -57,9 +131,6 @@ run_nile()
 <!-- end installation-->
 
 
-## Documentation
-
-For detailed documentation, please visit [https://osikazuzanna.github.io/morl4water/](https://osikazuzanna.github.io/morl4water/)
 
 
 
