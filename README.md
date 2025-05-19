@@ -13,7 +13,33 @@ Our toolkit is designed in a modular way, allowing users to build their own syst
 
 
 ## Code Structure
-The codebase is organized into two main components:
+The codebase is organized into two main components: core and examples.
+
+```text
+morl4water
+├── core
+│   ├── envs
+│   │   └── water_management_system.py
+│   ├── models
+│   │   ├── catchment.py
+│   │   ├── facility.py
+│   │   ├── flow.py
+│   │   ├── irrigation_district.py
+│   │   ├── objective.py
+│   │   ├── power_plant.py
+│   │   ├── reservoir.py
+│   │   ├── reservoir_with_pump.py
+│   │   └── weir.py
+├── examples
+│   ├── data
+│   │   ├── nile_river/
+│   │   ├── omo_river/
+│   │   └── susquehanna_river/
+│   ├── nile_river_simulation.py
+│   ├── omo_river_simulation.py
+│   └── susquehanna_river_simulation.py
+```
+
 
 ### `core/`
 This directory contains the core simulation logic and modular building blocks for modeling water systems:
@@ -52,32 +78,8 @@ This directory includes ready-to-run simulation scripts and datasets for real-wo
 
 These examples demonstrate how to instantiate and run MORL simulations for each river system, showcasing the flexibility of the framework across geographic and hydrological contexts.
 
-### Code Skeleton
 
-```text
-morl4water
-├── core
-│   ├── envs
-│   │   └── water_management_system.py
-│   ├── models
-│   │   ├── catchment.py
-│   │   ├── facility.py
-│   │   ├── flow.py
-│   │   ├── irrigation_district.py
-│   │   ├── objective.py
-│   │   ├── power_plant.py
-│   │   ├── reservoir.py
-│   │   ├── reservoir_with_pump.py
-│   │   └── weir.py
-├── examples
-│   ├── data
-│   │   ├── nile_river/
-│   │   ├── omo_river/
-│   │   └── susquehanna_river/
-│   ├── nile_river_simulation.py
-│   ├── omo_river_simulation.py
-│   └── susquehanna_river_simulation.py
-```
+
 
 ### Documentation
 
