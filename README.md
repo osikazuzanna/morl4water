@@ -7,7 +7,7 @@ This guide will walk you through the key features of the tool. Please refer to t
 
 Currently, we have three water systems implemented in a form of gym environments: Nile River Basin, Susquehanna River Basin and Omo River Basin (under development).
 
-Our toolkit is designed in a modular way, allowing users to build their own systems. For the overview of the systems, please go to System Elements.
+Our toolkit is designed in a modular way, allowing users to build their own systems. For the overview of the systems, please go to System Elements in the [documentation](https://osikazuzanna.github.io/morl4water/).
 
 
 
